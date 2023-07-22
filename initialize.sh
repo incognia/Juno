@@ -16,3 +16,6 @@ touch app/app.txt
 # Crear el script de inicio
 echo -e "#!/bin/bash" > entrypoint.sh
 chmod +x entrypoint.sh
+
+# Borrar script de inicialización
+rm initialize.sh
