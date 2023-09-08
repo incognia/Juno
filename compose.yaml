@@ -17,9 +17,6 @@ services:            # Define los servicios que se ejecutarán en Docker Compose
     restart: always                     # Reinicio automático.
   darwin:            # Nombre del servicio llamado "darwin".
     image: eureka/jupyterlab:0.0.1-bookworm-slim
-    build:
-      context: .
-      dockerfile: Dockerfile
     container_name: Darwin
     hostname: darwin
     ports:
@@ -32,9 +29,6 @@ services:            # Define los servicios que se ejecutarán en Docker Compose
     restart: always
   euler:             # Nombre del servicio llamado "euler".
     image: eureka/jupyterlab:0.0.1-bookworm-slim
-    build:
-      context: .
-      dockerfile: Dockerfile
     container_name: Euler
     hostname: euler
     ports:
@@ -47,9 +41,6 @@ services:            # Define los servicios que se ejecutarán en Docker Compose
     restart: always 
   arkhimedes:        # Nombre del servicio llamado "arkhimedes".
     image: eureka/jupyterlab:0.0.1-bookworm-slim
-    build:
-      context: .
-      dockerfile: Dockerfile
     container_name: Arkhimedes
     hostname: arkhimedes
     ports:
