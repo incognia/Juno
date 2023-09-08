@@ -50,19 +50,22 @@ RUN usermod -aG sudo eureka
 
 # Copia todos los archivos de app/ al directorio /app/
 COPY app/* /app/
+
+# Copia el archivo de configuración de SSH a /etc/ssh/sshd_config
+RUN cat /app/sshd_config > /etc/ssh/sshd_config
 # Copia .nanorc al directorio /home/eureka/
 RUN cat /app/.nanorc > /home/eureka/.nanorc
+
 # Crear directorio /home/eureka/.jupyter/
 RUN mkdir /home/eureka/.jupyter
 RUN mkdir -p /home/eureka/.jupyter/lab/user-settings/@jupyterlab/apputils-extension
 RUN mkdir -p /home/eureka/.jupyter/lab/user-settings/@jupyterlab/translation-extension
-
 # Copia jupyter_lab_config.py al directorio /home/eureka/.jupyter/
 RUN cat /app/jupyter_lab_config.py > /home/eureka/.jupyter/jupyter_lab_config.py
 RUN cat /app/themes.jupyterlab-settings > /home/eureka/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/themes.jupyterlab-settings
 RUN cat /app/plugin.jupyterlab-settings > /home/eureka/.jupyter/lab/user-settings/@jupyterlab/translation-extension/plugin.jupyterlab-settings
 
-# Copia todos los archivos de notes/ al directorio /home/eureka/
+# Copia todos los archivos de notes/ a /home/eureka/
 COPY ./notes/. /home/eureka/
 # Cambiamos al usuario "eureka"
 USER eureka
@@ -77,6 +80,9 @@ RUN chown -R eureka:eureka /home/eureka
 COPY entrypoint.sh /entrypoint.sh
 # Otorga permisos ejecución a entrypoint.sh
 RUN chmod +x /entrypoint.sh
+
+# Borrar el directorio con los archivos de configuración
+RUN rm -rf /app/
 
 # Iniciar servicios
 ENTRYPOINT [ "/entrypoint.sh" ]

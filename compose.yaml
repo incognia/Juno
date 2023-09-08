@@ -1,19 +1,23 @@
-version: '3.8'       # Versión de la sintaxis del archivo Docker Compose.
-services:            # Define los servicios que se ejecutarán en Docker Compose.
-  newton:            # Nombre del servicio llamado "newton".
+version: '3.8'                          # Versión de la sintaxis del archivo Docker Compose.
+services:                               # Define los servicios que se ejecutarán en Docker Compose.
+  newton:                               # Nombre del servicio llamado "newton".
     image: eureka/jupyterlab:0.0.1-bookworm-slim # Imagen del contenedor.
-    build:           # Configuración para construir la imagen del contenedor.
+    build:                              # Configuración para construir la imagen del contenedor.
       context: .                        # Directorio de construcción.
       dockerfile: Dockerfile            # Archivo Dockerfile.
     container_name: Newton              # Nombre del contenedor.
     hostname: newton                    # Nombre del host.
-    ports:           # Mapeo de puertos entre el host y el contenedor.
-      - 10022:22     # Mapea el puerto 10022 al 22 para SSH.
-      - 18888:8888   # Mapea el puerto 18888 al 8888 para JupyterLab.
-    tty: true        # Asigna una terminal pseudo-TTY al contenedor.
+    ports:                              # Mapeo de puertos entre el host y el contenedor.
+      - 10022:22                        # Mapea el puerto 10022 al 22 para SSH.
+      - 18888:8888                      # Mapea el puerto 18888 al 8888 para JupyterLab.
+    tty: true                           # Asigna una terminal pseudo-TTY al contenedor.
     stdin_open: true                    # Mantener STDIN abierto.
     restart: always                     # Reinicio automático.
-  darwin:            # Nombre del servicio llamado "darwin".
+    volumes:
+      - newton_home:/home/eureka        # Volumen persistente para /home/eureka
+      - newton_ssh:/etc/ssh             # Volumen persistente para la configuración de SSH
+
+  darwin:                               # Nombre del servicio llamado "darwin".
     image: eureka/jupyterlab:0.0.1-bookworm-slim
     container_name: Darwin
     hostname: darwin
@@ -23,7 +27,11 @@ services:            # Define los servicios que se ejecutarán en Docker Compose
     tty: true
     stdin_open: true
     restart: always
-  euler:             # Nombre del servicio llamado "euler".
+    volumes:
+      - darwin_home:/home/eureka        # Volumen persistente para /home/eureka
+      - darwin_ssh:/etc/ssh             # Volumen persistente para la configuración de SSH
+
+  euler:                                # Nombre del servicio llamado "euler".
     image: eureka/jupyterlab:0.0.1-bookworm-slim
     container_name: Euler
     hostname: euler
@@ -32,8 +40,12 @@ services:            # Define los servicios que se ejecutarán en Docker Compose
       - 38888:8888
     tty: true
     stdin_open: true
-    restart: always 
-  arkhimedes:        # Nombre del servicio llamado "arkhimedes".
+    restart: always
+    volumes:
+      - euler_home:/home/eureka         # Volumen persistente para /home/eureka
+      - euler_ssh:/etc/ssh              # Volumen persistente para la configuración de SSH
+
+  arkhimedes:                           # Nombre del servicio llamado "arkhimedes".
     image: eureka/jupyterlab:0.0.1-bookworm-slim
     container_name: Arkhimedes
     hostname: arkhimedes
@@ -42,4 +54,17 @@ services:            # Define los servicios que se ejecutarán en Docker Compose
       - 48888:8888
     tty: true
     stdin_open: true
-    restart: always 
+    restart: always
+    volumes:
+      - arkhimedes_home:/home/eureka    # Volumen persistente para /home/eureka
+      - arkhimedes_ssh:/etc/ssh         # Volumen persistente para la configuración de SSH
+
+volumes:
+  newton_home:      # Volumen para /home/eureka del servicio Newton
+  newton_ssh:       # Volumen para la configuración de SSH del servicio Newton
+  darwin_home:      # Volumen para /home/eureka del servicio Darwin
+  darwin_ssh:       # Volumen para la configuración de SSH del servicio Darwin
+  euler_home:       # Volumen para /home/eureka del servicio Euler
+  euler_ssh:        # Volumen para la configuración de SSH del servicio Euler
+  arkhimedes_home:  # Volumen para /home/eureka del servicio Arkhimedes
+  arkhimedes_ssh:   # Volumen para la configuración de SSH del servicio Arkhimedes
