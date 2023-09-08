@@ -61,10 +61,10 @@ services:            # Define los servicios que se ejecutarán en Docker Compose
 
 volumes:
   newton_home:
-  darwin_home:
-  euler_home:
-  arkhimedes_home:
   newton_ssh:
+  darwin_home:
   darwin_ssh:
+  euler_home:
   euler_ssh:
+  arkhimedes_home:
   arkhimedes_ssh:
