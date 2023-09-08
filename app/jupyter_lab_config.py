@@ -801,7 +801,7 @@ c = get_config()  #noqa
 #          cannot be determined reliably by the Jupyter server (proxified
 #          or containerized setups for example).
 #  Default: ''
-# c.ServerApp.custom_display_url = ''
+c.ServerApp.custom_display_url = 'http://faraday.org.mx:8888'
 
 ## The default URL to redirect to from `/`
 #  Default: '/'

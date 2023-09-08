@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+FROM python:slim-bookworm
 
 # Actualiza la lista de paquetes disponibles
 RUN apt-get update \
@@ -54,12 +54,22 @@ COPY app/* /app/
 RUN cat /app/.nanorc > /home/eureka/.nanorc
 # Crear directorio /home/eureka/.jupyter/
 RUN mkdir /home/eureka/.jupyter
+RUN mkdir -p /home/eureka/.jupyter/lab/user-settings/@jupyterlab/apputils-extension
+RUN mkdir -p /home/eureka/.jupyter/lab/user-settings/@jupyterlab/translation-extension
+
 # Copia jupyter_lab_config.py al directorio /home/eureka/.jupyter/
 RUN cat /app/jupyter_lab_config.py > /home/eureka/.jupyter/jupyter_lab_config.py
-# Descarga archivos listados en "files.txt" el directorio "/home/eureka/"
-RUN wget -i /app/files.txt -O /home/eureka/miniconda3.sh
-# Otorga permisos de ejecución al archivo "miniconda3.sh"
-RUN chmod +x /home/eureka/miniconda3.sh
+RUN cat /app/themes.jupyterlab-settings > /home/eureka/.jupyter/lab/user-settings/@jupyterlab/apputils-extension/themes.jupyterlab-settings
+RUN cat /app/plugin.jupyterlab-settings > /home/eureka/.jupyter/lab/user-settings/@jupyterlab/translation-extension/plugin.jupyterlab-settings
+
+# Copia todos los archivos de notes/ al directorio /home/eureka/
+COPY ./notes/. /home/eureka/
+# Cambiamos al usuario "eureka"
+USER eureka
+# Instalamos JupyterLab y el paquete de idioma en español (ES)
+RUN  pip install jupyterlab  jupyterlab-language-pack-es-ES
+# Cambiamos de nuevo al usuario "root"
+USER root
 # Asigna el usuario eureka como propietario del directorio /home/eureka/
 RUN chown -R eureka:eureka /home/eureka
 
