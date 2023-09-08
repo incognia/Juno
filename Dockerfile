@@ -35,6 +35,10 @@ RUN apt-get install -y \
 # Desinstalar navegador web basado en texto con sus dependencias
 RUN apt purge w3m -y && apt autoremove --purge -y
 
+# Configurar zona horaria
+ENV TZ=America/Mexico_City
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # Establecer contraseña del usuario root
 RUN echo "root:P@$$w0rd" | chpasswd
 

@@ -10,8 +10,6 @@ services:            # Define los servicios que se ejecutarán en Docker Compose
     ports:           # Mapeo de puertos entre el host y el contenedor.
       - 10022:22     # Mapea el puerto 10022 al 22 para SSH.
       - 18888:8888   # Mapea el puerto 18888 al 8888 para JupyterLab.
-    environment:     # Variables de entorno para el contenedor.
-      - TZ=America/Mexico_City          # Establece la zona horaria.
     tty: true        # Asigna una terminal pseudo-TTY al contenedor.
     stdin_open: true                    # Mantener STDIN abierto.
     restart: always                     # Reinicio automático.
@@ -22,8 +20,6 @@ services:            # Define los servicios que se ejecutarán en Docker Compose
     ports:
       - 20022:22
       - 28888:8888
-    environment:
-      - TZ=America/Mexico_City
     tty: true
     stdin_open: true
     restart: always
@@ -34,8 +30,6 @@ services:            # Define los servicios que se ejecutarán en Docker Compose
     ports:
       - 30022:22
       - 38888:8888
-    environment:
-      - TZ=America/Mexico_City
     tty: true
     stdin_open: true
     restart: always 
@@ -46,8 +40,6 @@ services:            # Define los servicios que se ejecutarán en Docker Compose
     ports:
       - 40022:22
       - 48888:8888
-    environment:
-      - TZ=America/Mexico_City
     tty: true
     stdin_open: true
     restart: always 
