@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+FROM python:slim-bookworm
 
 # Actualiza la lista de paquetes disponibles
 RUN apt-get update \
@@ -57,10 +57,17 @@ RUN mkdir /home/eureka/.jupyter
 # Copia jupyter_lab_config.py al directorio /home/eureka/.jupyter/
 RUN cat /app/jupyter_lab_config.py > /home/eureka/.jupyter/jupyter_lab_config.py
 # Descarga archivos listados en "files.txt" el directorio "/home/eureka/"
-RUN wget -i /app/files.txt -O /home/eureka/miniconda3.sh
+# RUN wget -i /app/files.txt -O /home/eureka/miniconda3.sh
 # Otorga permisos de ejecución al archivo "miniconda3.sh"
-RUN chmod +x /home/eureka/miniconda3.sh
+# RUN chmod +x /home/eureka/miniconda3.sh
 # Asigna el usuario eureka como propietario del directorio /home/eureka/
+
+USER eureka
+
+RUN  pip install jupyterlab  jupyterlab-language-pack-es-ES
+
+USER root
+
 RUN chown -R eureka:eureka /home/eureka
 
 # Configurar el script de inicio
