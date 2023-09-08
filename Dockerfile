@@ -56,18 +56,13 @@ RUN cat /app/.nanorc > /home/eureka/.nanorc
 RUN mkdir /home/eureka/.jupyter
 # Copia jupyter_lab_config.py al directorio /home/eureka/.jupyter/
 RUN cat /app/jupyter_lab_config.py > /home/eureka/.jupyter/jupyter_lab_config.py
-# Descarga archivos listados en "files.txt" el directorio "/home/eureka/"
-# RUN wget -i /app/files.txt -O /home/eureka/miniconda3.sh
-# Otorga permisos de ejecución al archivo "miniconda3.sh"
-# RUN chmod +x /home/eureka/miniconda3.sh
-# Asigna el usuario eureka como propietario del directorio /home/eureka/
-
+# Cambiamos al usuario "eureka"
 USER eureka
-
+# Instalamos JupyterLab y el paquete de idioma en español (ES)
 RUN  pip install jupyterlab  jupyterlab-language-pack-es-ES
-
+# Cambiamos de nuevo al usuario "root"
 USER root
-
+# Asigna el usuario eureka como propietario del directorio /home/eureka/
 RUN chown -R eureka:eureka /home/eureka
 
 # Configurar el script de inicio
