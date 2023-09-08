@@ -13,6 +13,10 @@ services:            # Define los servicios que se ejecutarán en Docker Compose
     tty: true        # Asigna una terminal pseudo-TTY al contenedor.
     stdin_open: true                    # Mantener STDIN abierto.
     restart: always                     # Reinicio automático.
+    volumes:
+      - newton_home:/home/eureka  # Volumen persistente para /home/eureka
+      - newton_ssh:/etc/ssh  # Volumen persistente para la configuración de SSH
+
   darwin:            # Nombre del servicio llamado "darwin".
     image: eureka/jupyterlab:0.0.1-bookworm-slim
     container_name: Darwin
@@ -23,6 +27,10 @@ services:            # Define los servicios que se ejecutarán en Docker Compose
     tty: true
     stdin_open: true
     restart: always
+    volumes:
+      - darwin_home:/home/eureka  # Volumen persistente para /home/eureka
+      - darwin_ssh:/etc/ssh  # Volumen persistente para la configuración de SSH
+
   euler:             # Nombre del servicio llamado "euler".
     image: eureka/jupyterlab:0.0.1-bookworm-slim
     container_name: Euler
@@ -32,7 +40,11 @@ services:            # Define los servicios que se ejecutarán en Docker Compose
       - 38888:8888
     tty: true
     stdin_open: true
-    restart: always 
+    restart: always
+    volumes:
+      - euler_home:/home/eureka  # Volumen persistente para /home/eureka
+      - euler_ssh:/etc/ssh  # Volumen persistente para la configuración de SSH
+
   arkhimedes:        # Nombre del servicio llamado "arkhimedes".
     image: eureka/jupyterlab:0.0.1-bookworm-slim
     container_name: Arkhimedes
@@ -42,4 +54,17 @@ services:            # Define los servicios que se ejecutarán en Docker Compose
       - 48888:8888
     tty: true
     stdin_open: true
-    restart: always 
+    restart: always
+    volumes:
+      - arkhimedes_home:/home/eureka  # Volumen persistente para /home/eureka
+      - arkhimedes_ssh:/etc/ssh  # Volumen persistente para la configuración de SSH
+
+volumes:
+  newton_home:
+  darwin_home:
+  euler_home:
+  arkhimedes_home:
+  newton_ssh:
+  darwin_ssh:
+  euler_ssh:
+  arkhimedes_ssh:
