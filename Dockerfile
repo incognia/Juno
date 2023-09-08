@@ -38,26 +38,26 @@ RUN apt purge w3m -y && apt autoremove --purge -y
 # Establecer contraseña del usuario root
 RUN echo "root:P@$$w0rd" | chpasswd
 
-# Crear usuario incognia y establecer contraseña
-RUN useradd -m -s /bin/bash incognia && echo "incognia:1Nc0gn14" | chpasswd
+# Crear usuario eureka y establecer contraseña
+RUN useradd -m -s /bin/bash eureka && echo "eureka:N3p3" | chpasswd
 
-# Agregar usuario incognia al grupo sudo
-RUN usermod -aG sudo incognia
+# Agregar usuario eureka al grupo sudo
+RUN usermod -aG sudo eureka
 
 # Copia todos los archivos de app/ al directorio /app/
 COPY app/* /app/
-# Copia .nanorc al directorio /home/incognia/
-RUN cat /app/.nanorc > /home/incognia/.nanorc
-# Crear directorio /home/incognia/.jupyter/
-RUN mkdir /home/incognia/.jupyter
-# Copia jupyter_lab_config.py al directorio /home/incognia/.jupyter/
-RUN cat /app/jupyter_lab_config.py > /home/incognia/.jupyter/jupyter_lab_config.py
-# Descarga archivos listados en "files.txt" el directorio "/home/incognia/"
-RUN wget -i /app/files.txt -O /home/incognia/miniconda3.sh
+# Copia .nanorc al directorio /home/eureka/
+RUN cat /app/.nanorc > /home/eureka/.nanorc
+# Crear directorio /home/eureka/.jupyter/
+RUN mkdir /home/eureka/.jupyter
+# Copia jupyter_lab_config.py al directorio /home/eureka/.jupyter/
+RUN cat /app/jupyter_lab_config.py > /home/eureka/.jupyter/jupyter_lab_config.py
+# Descarga archivos listados en "files.txt" el directorio "/home/eureka/"
+RUN wget -i /app/files.txt -O /home/eureka/miniconda3.sh
 # Otorga permisos de ejecución al archivo "miniconda3.sh"
-RUN chmod +x /home/incognia/miniconda3.sh
-# Asigna el usuario incognia como propietario del directorio /home/incognia/
-RUN chown -R incognia:incognia /home/incognia
+RUN chmod +x /home/eureka/miniconda3.sh
+# Asigna el usuario eureka como propietario del directorio /home/eureka/
+RUN chown -R eureka:eureka /home/eureka
 
 # Configurar el script de inicio
 COPY entrypoint.sh /entrypoint.sh

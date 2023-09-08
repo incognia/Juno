@@ -1,12 +1,12 @@
-version: '3.8'      # Versión de la sintaxis del archivo Docker Compose.
-services:           # Define los servicios que se ejecutarán en Docker Compose.
-  jupyter:          # Nombre del servicio llamado "jupyter".
-    image: incogniadev/jupyterlab:0.0.1-bookworm-slim # Imagen del contenedor.
-    build:          # Configuración para construir la imagen del contenedor.
+version: '3.8'       # Versión de la sintaxis del archivo Docker Compose.
+services:            # Define los servicios que se ejecutarán en Docker Compose.
+  newton:            # Nombre del servicio llamado "newton".
+    image: eureka/jupyterlab:0.0.1-bookworm-slim # Imagen del contenedor.
+    build:           # Configuración para construir la imagen del contenedor.
       context: .                        # Directorio de construcción.
       dockerfile: Dockerfile            # Archivo Dockerfile.
-    container_name: JupyterLab          # Nombre del contenedor.
-    hostname: jupyter                   # Nombre del host.
+    container_name: Newton              # Nombre del contenedor.
+    hostname: newton                    # Nombre del host.
     ports:           # Mapeo de puertos entre el host y el contenedor.
       - 10022:22     # Mapea el puerto 10022 al 22 para SSH.
       - 18888:8888   # Mapea el puerto 18888 al 8888 para JupyterLab.
@@ -15,3 +15,48 @@ services:           # Define los servicios que se ejecutarán en Docker Compose.
     tty: true        # Asigna una terminal pseudo-TTY al contenedor.
     stdin_open: true                    # Mantener STDIN abierto.
     restart: always                     # Reinicio automático.
+  darwin:            # Nombre del servicio llamado "darwin".
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: Darwin
+    hostname: darwin
+    ports:
+      - 20022:22
+      - 28888:8888
+    environment:
+      - TZ=America/Mexico_City
+    tty: true
+    stdin_open: true
+    restart: always
+  euler:             # Nombre del servicio llamado "euler".
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: Euler
+    hostname: euler
+    ports:
+      - 30022:22
+      - 38888:8888
+    environment:
+      - TZ=America/Mexico_City
+    tty: true
+    stdin_open: true
+    restart: always 
+  arkhimedes:        # Nombre del servicio llamado "arkhimedes".
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: Arkhimedes
+    hostname: arkhimedes
+    ports:
+      - 40022:22
+      - 48888:8888
+    environment:
+      - TZ=America/Mexico_City
+    tty: true
+    stdin_open: true
+    restart: always 
