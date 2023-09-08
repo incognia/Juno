@@ -17,6 +17,3 @@ sleep 5
 
 # Iniciar los contenedores en modo desatachado
 docker compose up -d
-
-# Ejecutar un shell interactivo dentro del contenedor "JupyterLab"
-# docker exec -it -u incognia JupyterLab bash
