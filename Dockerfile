@@ -56,6 +56,8 @@ RUN cat /app/.nanorc > /home/eureka/.nanorc
 RUN mkdir /home/eureka/.jupyter
 # Copia jupyter_lab_config.py al directorio /home/eureka/.jupyter/
 RUN cat /app/jupyter_lab_config.py > /home/eureka/.jupyter/jupyter_lab_config.py
+# Copiamos todos los archivos con extensión .ipynb al directorio /home/eureka/
+COPY app/*.ipynb /home/eureka/
 # Cambiamos al usuario "eureka"
 USER eureka
 # Instalamos JupyterLab y el paquete de idioma en español (ES)
