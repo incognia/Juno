@@ -14,7 +14,7 @@ services:                               # Define los servicios que se ejecutará
     stdin_open: true                    # Mantener STDIN abierto.
     restart: always                     # Reinicio automático.
     volumes:
-      - newton_home:/home/eureka        # Volumen persistente para /home/eureka
+      - newton_home:/home/eureka        # Volumen persistente para /home/eureka.
       - newton_ssh:/etc/ssh             # Volumen persistente para la configuración de SSH
 
   darwin:                               # Nombre del servicio llamado "darwin".
@@ -28,8 +28,8 @@ services:                               # Define los servicios que se ejecutará
     stdin_open: true
     restart: always
     volumes:
-      - darwin_home:/home/eureka        # Volumen persistente para /home/eureka
-      - darwin_ssh:/etc/ssh             # Volumen persistente para la configuración de SSH
+      - darwin_home:/home/eureka        # Volumen persistente para /home/eureka.
+      - darwin_ssh:/etc/ssh             # Volumen persistente para la configuración de SSH.
 
   euler:                                # Nombre del servicio llamado "euler".
     image: eureka/jupyterlab:0.0.1-bookworm-slim
@@ -42,8 +42,8 @@ services:                               # Define los servicios que se ejecutará
     stdin_open: true
     restart: always
     volumes:
-      - euler_home:/home/eureka         # Volumen persistente para /home/eureka
-      - euler_ssh:/etc/ssh              # Volumen persistente para la configuración de SSH
+      - euler_home:/home/eureka         # Volumen persistente para /home/eureka.
+      - euler_ssh:/etc/ssh              # Volumen persistente para la configuración de SSH.
 
   arkhimedes:                           # Nombre del servicio llamado "arkhimedes".
     image: eureka/jupyterlab:0.0.1-bookworm-slim
@@ -56,15 +56,15 @@ services:                               # Define los servicios que se ejecutará
     stdin_open: true
     restart: always
     volumes:
-      - arkhimedes_home:/home/eureka    # Volumen persistente para /home/eureka
-      - arkhimedes_ssh:/etc/ssh         # Volumen persistente para la configuración de SSH
+      - arkhimedes_home:/home/eureka    # Volumen persistente para /home/eureka.
+      - arkhimedes_ssh:/etc/ssh         # Volumen persistente para la configuración de SSH.
 
 volumes:
-  newton_home:      # Volumen para /home/eureka del servicio Newton
-  newton_ssh:       # Volumen para la configuración de SSH del servicio Newton
-  darwin_home:      # Volumen para /home/eureka del servicio Darwin
-  darwin_ssh:       # Volumen para la configuración de SSH del servicio Darwin
-  euler_home:       # Volumen para /home/eureka del servicio Euler
-  euler_ssh:        # Volumen para la configuración de SSH del servicio Euler
-  arkhimedes_home:  # Volumen para /home/eureka del servicio Arkhimedes
-  arkhimedes_ssh:   # Volumen para la configuración de SSH del servicio Arkhimedes
+  newton_home:      # Volumen para /home/eureka del servicio Newton.
+  newton_ssh:       # Volumen para la configuración de SSH del servicio Newton.
+  darwin_home:      # Volumen para /home/eureka del servicio Darwin.
+  darwin_ssh:       # Volumen para la configuración de SSH del servicio Darwin.
+  euler_home:       # Volumen para /home/eureka del servicio Euler.
+  euler_ssh:        # Volumen para la configuración de SSH del servicio Euler.
+  arkhimedes_home:  # Volumen para /home/eureka del servicio Arkhimedes.
+  arkhimedes_ssh:   # Volumen para la configuración de SSH del servicio Arkhimedes.
