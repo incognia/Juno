@@ -1,5 +1,11 @@
 #!/bin/bash
 
+RED="\e[31m"
+GREEN="\e[32m"
+YELLOW="\e[33m"
+BLUE="\e[34m"
+ENDCOLOR="\e[0m"
+
 # Define una variable 'image' que almacena la imagen de Docker que se utilizará en el script.
 image=eureka/jupyterlab:0.0.1-bookworm-slim
 
@@ -33,7 +39,7 @@ while [[ $# -gt 0 ]]; do
         volume=true
         ;;
     *)
-        echo "Opción no válida: $1"
+        echo -e "\n${YELLOW}Opción no válida: $1${ENDCOLOR}\n"
         exit 1
         ;;
     esac
@@ -63,14 +69,14 @@ fi
 
 # Si la opción -r está configurada como verdadera, ejecuta un mensaje específico.
 if [ "$rebuild" = true ]; then
-    echo "Ejecutando código para la opción -r"
+    echo -e "\n${GREEN}Reconstruir contenedores${ENDCOLOR}\n"
     clean=true
     build=true
 fi
 
 # Si la opción -c o -r está configurada como verdadera, ejecuta acciones para limpiar contenedores e imágenes de Docker.
 if [ "$clean" = true ]; then
-    echo "Detener y eliminar los contenedores"
+    echo -e "\n${RED}Detener y eliminar los contenedores${ENDCOLOR}\n"
     sleep 2
     docker compose down
     # Eliminar una imagen específica.
@@ -81,14 +87,14 @@ fi
 
 # Si la opción -p está configurada como verdadera, limpia recursos no utilizados de Docker.
 if [ "$prune" = true ]; then
-    echo "Limpiar recursos no utilizados de Docker"
+    echo -e "\n${YELLOW}Limpiar recursos no utilizados de Docker${ENDCOLOR}\n"
     sleep 2
     yes | docker system prune
 fi
 
 # Si la opción -v está configurada como verdadera, elimina volúmenes específicos de Docker.
 if [ "$volume" = true ]; then
-    echo "Borrar volúmenes"
+    echo -e "\n${RED}Borrar volúmenes${ENDCOLOR}\n"
     sleep 2
     docker volume rm \
         jupyter_newton_home \
@@ -103,7 +109,7 @@ fi
 
 # Si la opción -b o -a está configurada como verdadera, inicia los contenedores en modo desacoplado.
 if [ "$build" = true ]; then
-    echo "Iniciar los contenedores en modo desacoplado"
+    echo -e "\n${GREEN}Iniciar los contenedores en modo desacoplado${ENDCOLOR}\n"
     sleep 2
     docker compose up -d
 fi
