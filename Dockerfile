@@ -56,17 +56,22 @@ RUN cat /app/etc/sshd_config > /etc/ssh/sshd_config
 
 # Cambiamos al usuario "eureka"
 USER eureka
+
 # Instalamos JupyterLab y el paquete de idioma en español (ES)
 RUN  pip install jupyterlab  jupyterlab-language-pack-es-ES
+
 # Cambiamos de nuevo al usuario "root"
 USER root
+
 # Copia todos los archivos de app/home/ al directorio /home/eureka/
 COPY ./app/home/. /home/eureka/
+
 # Asigna el usuario eureka como propietario del directorio /home/eureka/
 RUN chown -R eureka:eureka /home/eureka
 
 # Configurar el script de inicio
 COPY entrypoint.sh /entrypoint.sh
+
 # Otorga permisos ejecución a entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
