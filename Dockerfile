@@ -43,7 +43,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN echo "root:P@$$w0rd" | chpasswd
 
 # Crear usuario eureka y establecer contraseña
-RUN useradd -m -s /bin/bash eureka && echo "eureka:N3p3" | chpasswd
+RUN useradd -m -s /bin/bash eureka && echo "eureka:3Ur3k4" | chpasswd
 
 # Agregar usuario eureka al grupo sudo
 RUN usermod -aG sudo eureka
