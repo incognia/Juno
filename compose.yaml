@@ -59,7 +59,7 @@ services:                               # Define los servicios que se ejecutará
       - arkhimedes_home:/home/eureka    # Volumen persistente para /home/eureka.
       - arkhimedes_ssh:/etc/ssh         # Volumen persistente para la configuración de SSH.
 
-  asimov:                           # Nombre del servicio llamado "arkhimedes".
+  asimov:                               # Nombre del servicio llamado "arkhimedes".
     image: eureka/jupyterlab:0.0.1-bookworm-slim
     container_name: Asimov
     hostname: asimov
@@ -70,8 +70,8 @@ services:                               # Define los servicios que se ejecutará
     stdin_open: true
     restart: always
     volumes:
-      - asimov_home:/home/eureka    # Volumen persistente para /home/eureka.
-      - asimov_ssh:/etc/ssh         # Volumen persistente para la configuración de SSH.
+      - asimov_home:/home/eureka        # Volumen persistente para /home/eureka.
+      - asimov_ssh:/etc/ssh             # Volumen persistente para la configuración de SSH.
 
 volumes:
   faraday_home:     # Volumen para /home/eureka del servicio Faraday.
