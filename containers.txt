@@ -1,0 +1,5 @@
+faraday
+darwin
+euler
+arkhimedes
+asimov
