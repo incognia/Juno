@@ -9,10 +9,10 @@ Jupyter/
 │   ├── etc/
 │   │   └── sshd_config
 │   ├── home/
-│   │   └── 01_basics/
-│   │       ├── 01_string_input_print.ipynb
-│   │       └── 02_variables.ipynb
 │   └── notes/
+│       ├── 01_basics/
+│       │   ├── 01_string_input_print.ipynb
+│       │   └── 02_variables.ipynb
 │       ├── 02_if_else/
 │       │   ├── 03_list_if_in_else.ipynb
 │       │   ├── 04_list_append_remove.ipynb
@@ -37,11 +37,14 @@ Jupyter/
 │       │   └── 20_booleans.ipynb
 │       ├── 06_recap/
 │       │   └── 21_list_recap.ipynb
-│       └── notes.sh*
+│       ├── containers.txt -> ../../containers.txt
+│       └── notes.py*
 ├── build.sh*
 ├── compose.yaml
+├── containers.txt
 ├── Dockerfile
 ├── entrypoint.sh*
+├── generator.py*
 ├── LICENSE
 └── README.md
 ```
