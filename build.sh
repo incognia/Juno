@@ -102,17 +102,7 @@ fi
 if [ "$volume" = true ]; then
     echo -e "\n${RED}Borrar volúmenes${ENDCOLOR}\n"
     sleep 2
-    docker volume rm \
-        jupyter_faraday_home \
-        jupyter_faraday_ssh \
-        jupyter_darwin_home \
-        jupyter_darwin_ssh \
-        jupyter_euler_home \
-        jupyter_euler_ssh \
-        jupyter_arkhimedes_home \
-        jupyter_arkhimedes_ssh \
-        jupyter_asimov_home \
-        jupyter_asimov_ssh
+    docker compose down -v 
 fi
 
 # Si la opción -p está configurada como verdadera, limpia recursos no utilizados de Docker.

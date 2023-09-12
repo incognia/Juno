@@ -76,6 +76,20 @@ services:
       - asimov_home:/home/eureka
       - asimov_ssh:/etc/ssh
 
+  newton:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Newton
+    hostname: newton
+    ports:
+      - 1522:22
+      - 1588:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - newton_home:/home/eureka
+      - newton_ssh:/etc/ssh
+
 volumes:
   faraday_home:
   faraday_ssh:
@@ -87,3 +101,5 @@ volumes:
   arkhimedes_ssh:
   asimov_home:
   asimov_ssh:
+  newton_home:
+  newton_ssh:
