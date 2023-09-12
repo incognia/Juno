@@ -93,7 +93,8 @@ if [ "$clean" = true ]; then
     echo -e "\n${RED}Detener y eliminar los contenedores${ENDCOLOR}\n"
     sleep 2
     docker compose down
-    # Eliminar una imagen específica.
+    echo -e "\n${RED}Eliminar la imagen: ${YELLOW}$image${ENDCOLOR}\n"
+    sleep 2
     docker rmi $image
 fi
 

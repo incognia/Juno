@@ -1,86 +1,89 @@
-version: '3.8'                          # Versión de la sintaxis del archivo Docker Compose.
-services:                               # Define los servicios que se ejecutarán en Docker Compose.
-  faraday:                              # Nombre del servicio llamado "faraday".
-    image: eureka/jupyterlab:0.0.1-bookworm-slim # Imagen del contenedor.
-    build:                              # Configuración para construir la imagen del contenedor.
-      context: .                        # Directorio de construcción.
-      dockerfile: Dockerfile            # Archivo Dockerfile.
-    container_name: Faraday             # Nombre del contenedor.
-    hostname: faraday                   # Nombre del host.
-    ports:                              # Mapeo de puertos entre el host y el contenedor.
-      - 10022:22                        # Mapea el puerto 10022 al 22 para SSH.
-      - 18888:8888                      # Mapea el puerto 18888 al 8888 para JupyterLab.
-    tty: true                           # Asigna una terminal pseudo-TTY al contenedor.
-    stdin_open: true                    # Mantener STDIN abierto.
-    restart: always                     # Reinicio automático.
-    volumes:
-      - faraday_home:/home/eureka       # Volumen persistente para /home/eureka.
-      - faraday_ssh:/etc/ssh            # Volumen persistente para la configuración de SSH
 
-  darwin:                               # Nombre del servicio llamado "darwin".
+version: '3.8'
+services:
+
+  faraday:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Faraday
+    hostname: faraday
+    ports:
+      - 1022:22
+      - 1088:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - faraday_home:/home/eureka
+      - faraday_ssh:/etc/ssh
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+
+  darwin:
     image: eureka/jupyterlab:0.0.1-bookworm-slim
     container_name: Darwin
     hostname: darwin
     ports:
-      - 20022:22
-      - 28888:8888
+      - 1122:22
+      - 1188:8888
     tty: true
     stdin_open: true
     restart: always
     volumes:
-      - darwin_home:/home/eureka        # Volumen persistente para /home/eureka.
-      - darwin_ssh:/etc/ssh             # Volumen persistente para la configuración de SSH.
+      - darwin_home:/home/eureka
+      - darwin_ssh:/etc/ssh
 
-  euler:                                # Nombre del servicio llamado "euler".
+  euler:
     image: eureka/jupyterlab:0.0.1-bookworm-slim
     container_name: Euler
     hostname: euler
     ports:
-      - 30022:22
-      - 38888:8888
+      - 1222:22
+      - 1288:8888
     tty: true
     stdin_open: true
     restart: always
     volumes:
-      - euler_home:/home/eureka         # Volumen persistente para /home/eureka.
-      - euler_ssh:/etc/ssh              # Volumen persistente para la configuración de SSH.
+      - euler_home:/home/eureka
+      - euler_ssh:/etc/ssh
 
-  arkhimedes:                           # Nombre del servicio llamado "arkhimedes".
+  arkhimedes:
     image: eureka/jupyterlab:0.0.1-bookworm-slim
     container_name: Arkhimedes
     hostname: arkhimedes
     ports:
-      - 40022:22
-      - 48888:8888
+      - 1322:22
+      - 1388:8888
     tty: true
     stdin_open: true
     restart: always
     volumes:
-      - arkhimedes_home:/home/eureka    # Volumen persistente para /home/eureka.
-      - arkhimedes_ssh:/etc/ssh         # Volumen persistente para la configuración de SSH.
+      - arkhimedes_home:/home/eureka
+      - arkhimedes_ssh:/etc/ssh
 
-  asimov:                               # Nombre del servicio llamado "arkhimedes".
+  asimov:
     image: eureka/jupyterlab:0.0.1-bookworm-slim
     container_name: Asimov
     hostname: asimov
     ports:
-      - 50022:22
-      - 58888:8888
+      - 1422:22
+      - 1488:8888
     tty: true
     stdin_open: true
     restart: always
     volumes:
-      - asimov_home:/home/eureka        # Volumen persistente para /home/eureka.
-      - asimov_ssh:/etc/ssh             # Volumen persistente para la configuración de SSH.
+      - asimov_home:/home/eureka
+      - asimov_ssh:/etc/ssh
 
 volumes:
-  faraday_home:     # Volumen para /home/eureka del servicio Faraday.
-  faraday_ssh:      # Volumen para la configuración de SSH del servicio Faraday.
-  darwin_home:      # Volumen para /home/eureka del servicio Darwin.
-  darwin_ssh:       # Volumen para la configuración de SSH del servicio Darwin.
-  euler_home:       # Volumen para /home/eureka del servicio Euler.
-  euler_ssh:        # Volumen para la configuración de SSH del servicio Euler.
-  arkhimedes_home:  # Volumen para /home/eureka del servicio Arkhimedes.
-  arkhimedes_ssh:   # Volumen para la configuración de SSH del servicio Arkhimedes.
-  asimov_home:      # Volumen para /home/eureka del servicio Asimov.
-  asimov_ssh:       # Volumen para la configuración de SSH del servicio Asimov.
+  faraday_home:
+  faraday_ssh:
+  darwin_home:
+  darwin_ssh:
+  euler_home:
+  euler_ssh:
+  arkhimedes_home:
+  arkhimedes_ssh:
+  asimov_home:
+  asimov_ssh:
