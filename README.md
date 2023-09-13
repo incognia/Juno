@@ -1,6 +1,10 @@
 # Jupyter
 Learn Python with Jupyter
 
+## Stack
+
+![Juno Docker Stack](https://raw.githubusercontent.com/incognia/Jupyter/main/.assets/junoStack.png)
+
 ## Project structure
 
 ```bash
