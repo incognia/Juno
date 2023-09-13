@@ -2,10 +2,10 @@
 version: '3.8'
 services:
 
-  faraday:
+  juno:
     image: eureka/jupyterlab:0.0.1-bookworm-slim
-    container_name: Faraday
-    hostname: faraday
+    container_name: Juno
+    hostname: juno
     ports:
       - 1022:22
       - 1088:8888
@@ -13,17 +13,17 @@ services:
     stdin_open: true
     restart: always
     volumes:
-      - faraday_home:/home/eureka
-      - faraday_ssh:/etc/ssh
+      - juno_home:/home/eureka
+      - juno_ssh:/etc/ssh
     build:
       context: .
       dockerfile: Dockerfile
 
 
-  darwin:
+  io:
     image: eureka/jupyterlab:0.0.1-bookworm-slim
-    container_name: Darwin
-    hostname: darwin
+    container_name: Io
+    hostname: io
     ports:
       - 1122:22
       - 1188:8888
@@ -31,13 +31,13 @@ services:
     stdin_open: true
     restart: always
     volumes:
-      - darwin_home:/home/eureka
-      - darwin_ssh:/etc/ssh
+      - io_home:/home/eureka
+      - io_ssh:/etc/ssh
 
-  euler:
+  europa:
     image: eureka/jupyterlab:0.0.1-bookworm-slim
-    container_name: Euler
-    hostname: euler
+    container_name: Europa
+    hostname: europa
     ports:
       - 1222:22
       - 1288:8888
@@ -45,13 +45,13 @@ services:
     stdin_open: true
     restart: always
     volumes:
-      - euler_home:/home/eureka
-      - euler_ssh:/etc/ssh
+      - europa_home:/home/eureka
+      - europa_ssh:/etc/ssh
 
-  arkhimedes:
+  ganymede:
     image: eureka/jupyterlab:0.0.1-bookworm-slim
-    container_name: Arkhimedes
-    hostname: arkhimedes
+    container_name: Ganymede
+    hostname: ganymede
     ports:
       - 1322:22
       - 1388:8888
@@ -59,13 +59,13 @@ services:
     stdin_open: true
     restart: always
     volumes:
-      - arkhimedes_home:/home/eureka
-      - arkhimedes_ssh:/etc/ssh
+      - ganymede_home:/home/eureka
+      - ganymede_ssh:/etc/ssh
 
-  asimov:
+  callisto:
     image: eureka/jupyterlab:0.0.1-bookworm-slim
-    container_name: Asimov
-    hostname: asimov
+    container_name: Callisto
+    hostname: callisto
     ports:
       - 1422:22
       - 1488:8888
@@ -73,33 +73,17 @@ services:
     stdin_open: true
     restart: always
     volumes:
-      - asimov_home:/home/eureka
-      - asimov_ssh:/etc/ssh
-
-  newton:
-    image: eureka/jupyterlab:0.0.1-bookworm-slim
-    container_name: Newton
-    hostname: newton
-    ports:
-      - 1522:22
-      - 1588:8888
-    tty: true
-    stdin_open: true
-    restart: always
-    volumes:
-      - newton_home:/home/eureka
-      - newton_ssh:/etc/ssh
+      - callisto_home:/home/eureka
+      - callisto_ssh:/etc/ssh
 
 volumes:
-  faraday_home:
-  faraday_ssh:
-  darwin_home:
-  darwin_ssh:
-  euler_home:
-  euler_ssh:
-  arkhimedes_home:
-  arkhimedes_ssh:
-  asimov_home:
-  asimov_ssh:
-  newton_home:
-  newton_ssh:
+  juno_home:
+  juno_ssh:
+  io_home:
+  io_ssh:
+  europa_home:
+  europa_ssh:
+  ganymede_home:
+  ganymede_ssh:
+  callisto_home:
+  callisto_ssh:

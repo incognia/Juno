@@ -1,5 +1,5 @@
-faraday
-darwin
-euler
-arkhimedes
-asimov
+juno
+io
+europa
+ganymede
+callisto
