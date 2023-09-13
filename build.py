@@ -8,17 +8,19 @@ import time
 RED = "\033[31m"
 GREEN = "\033[32m"
 YELLOW = "\033[33m"
-BLUE="\033[34m"
 ENDCOLOR = "\033[0m"
 
 # Define la imagen de Docker
 image = "eureka/jupyterlab:0.0.1-bookworm-slim"
 
-# Función para limpiar contenedores y eliminar la imagen
-def clean_containers_and_image():
+# Función para limpiar contenedores
+def clean_containers():
     print(f"\n{RED}Detener y eliminar los contenedores{ENDCOLOR}\n")
     time.sleep(2)
     subprocess.run(["docker", "compose", "down"])
+
+# Función para eliminar la imagen
+def delete_image():
     print(f"\n{RED}Eliminar la imagen: {YELLOW}{image}{ENDCOLOR}\n")
     time.sleep(2)
     subprocess.run(["docker", "rmi", image])
@@ -27,7 +29,7 @@ def clean_containers_and_image():
 def delete_volumes():
     print(f"\n{RED}Borrar volúmenes{ENDCOLOR}\n")
     time.sleep(2)
-    subprocess.run(["docker", "compose", "down", "-v"])
+    subprocess.run(["docker", "volume", "prune", "-f"])
 
 # Función para limpiar recursos no utilizados de Docker
 def prune_docker_resources():
@@ -64,10 +66,12 @@ def main():
         print(f"\n{GREEN}Reconstruir contenedores{ENDCOLOR}\n")
         args.c = args.d = args.p = args.b = True
 
-    if args.c or args.d or args.r:
-        clean_containers_and_image()
+    if args.c:
+        clean_containers()
 
-    if args.v:
+    if args.d:
+        clean_containers()
+        delete_image()
         delete_volumes()
 
     if args.p:
