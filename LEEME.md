@@ -133,7 +133,7 @@ Este proyecto está bajo la [icencia Pública General de GNU versión 3.0 (GPL-3
 
 ## Agradecimientos
 
-Me gustaría expresar mi sincero agradecimiento y reconocimiento a Serena Bonaretti por su inspirador trabajo en "Aprende Python con Jupyter". Su proyecto sirvió como una valiosa referencia y fuente de inspiración para este proyecto.
+Me gustaría expresar mi sincero agradecimiento y reconocimiento a Serena Bonaretti por su inspirador trabajo en "Learn Python with Jupyter". Su proyecto sirvió como una valiosa referencia y fuente de inspiración para este proyecto.
 
 - **Learn Python with Jupyter**: Visita el fantástico proyecto de Serena en [Learn Python with Jupyter](https://learnpythonwithjupyter.com/).
 - **Serena Bonaretti en Twitter**: Sigue a Serena en Twitter [@serenabonaretti](https://twitter.com/serenabonaretti) para obtener más contenido perspicaz y actualizaciones.

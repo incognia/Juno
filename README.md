@@ -186,10 +186,18 @@ As a default configuration, the image comes with JupyterLab and the Spanish (ES)
 
  With these steps, you can seamlessly personalize the image construction process to meet the specific needs and language preferences of your class. Remember to save your Dockerfile changes before proceeding with image building.
 
-### Volumes
+#### Volumes for Persistence
+
+Each generated container is equipped with two volumes: `{container_name}_ssh` and `{container_name}_home`. These volumes serve specific purposes in preserving the integrity of the student environments.
+
+- `{container_name}_ssh`: In this volume, the `/etc/ssh` directory is mounted. This directory contains essential SSH configuration files. By preserving this volume, we ensure that the SSH fingerprint generated during container creation is retained. Consequently, students won't encounter authentication errors (known_hosts) when logging in again. This becomes especially valuable when you need to recreate the entire deployment for updates or maintenance.
+- `{container_name}_home`: This volume is mounted to the `/home/eureka` directory, representing the default working directory for the "eureka" user. Within this directory, several preconfigured Jupyter parameters are stored. Keeping this volume allows students to maintain their individual Jupyter configurations and libraries. When you rebuild containers, whether for upgrading the OS, Python, or Jupyter versions, students won't lose their work or customizations.
+
+These volumes provide an essential layer of persistence, ensuring that students' progress and configurations remain intact, even when making substantial changes to the deployment. The diagram below illustrates the structure of a typical (N) container and the configuration of external volumes directly mounted into the container's filesystem:
 
 ![Juno Volumes](https://raw.githubusercontent.com/incognia/Juno/main/.assets/junoVolumes.svg)
 
+This approach enhances the flexibility and reliability of the learning environment, making it easier to manage and update while minimizing disruptions for the students.
 
 ## Project structure
 
@@ -240,7 +248,7 @@ Juno/
 └── README.md
 ```
 
-## Contribuciones
+## Contributing
 
 Encourage others to contribute to your project, especially if you'd like help with Docker Compose configurations, JupyterLab extensions, or other aspects of the project. Specify how they can contribute, such as forking the repository and submitting pull requests.
 
