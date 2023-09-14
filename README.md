@@ -33,7 +33,7 @@ Additionally, it's important to have some experience using a text terminal and a
 
 ## Usage
 
-### Deployment
+### For Instructors (Deployment)
 
 To get started, follow these steps:
 
@@ -94,6 +94,26 @@ To get started, follow these steps:
     5d4c60e7a597    Up 28 hours            0.0.0.0:1422->22/tcp, :::1422->22/tcp, 0.0.0.0:1488->8888/tcp, :::1488->8888/tcp   Callisto
     ```
     Ensure that the container names and ports are listed as expected, and that each container is "Up" and running.
+
+### For Students
+
+If you're a student, here's how to access and use JupyterLab from your side:
+
+1)  Connect to the server using SSH with the following command (replace `<username>` and `<server_ip>` with your instructor's provided details):
+    ```bash
+    ssh eureka@<server_ip> -p 1022
+    ```
+    Use the default password `3Ur3k4` when prompted.
+2)  Once connected, simply enter the following command to start JupyterLab:
+    ```bash
+    jupyter-lab
+    ```
+3)  JupyterLab will provide you with a URL and a token. Please note that the port in the URL will be set to 8888 by default. However, you should manually change the port in your web browser's address bar to match the JupyterLab port associated with your specific container. The first two digits of the JupyterLab port correspond to the first two digits of the SSH port you used in the previous step. For example, if you used SSH port 1022, change the URL to `http://<server_ip>:1088/lab?token=<your_token>` if you're working in the first container.
+4)  Access JupyterLab using the modified URL with the appropriate port and the token provided. Please note that the token changes with each execution.
+
+    Remember to log out of the server and stop your JupyterLab session when you're done:
+    - To stop your JupyterLab session, go back to the SSH terminal and press `Ctrl + C`. Confirm the action when prompted.
+    - To log out of the server, simply type `exit` in the SSH terminal.
 
 ### Stack
 
