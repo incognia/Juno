@@ -1,7 +1,7 @@
 # Juno | JupyterLab-Based STEM Learning Environment
 [![License: GPL3](https://img.shields.io/badge/License-GPLv3-bd0000.svg)](https://raw.githubusercontent.com/incognia/Juno/main/LICENSE) | ![Debian](https://img.shields.io/badge/Debian-v12.1-d80150.svg) ![Docker](https://img.shields.io/badge/Docker-v24.0.5-0db7ed.svg) ![Compose](https://img.shields.io/badge/Compose-v2.20.2-0db7ed.svg) ![Python](https://img.shields.io/badge/Python-v3.11.5-306998.svg) ![JupyterLab](https://img.shields.io/badge/JupyterLab-v4.0.5-f37726.svg)
 
-Create an immersive STEM learning environment for middle school students (ages 12 to 15) using JupyterLab. Our project leverages Docker Compose to orchestrate container deployments. A Python script automates the generation of the Docker Compose file, tailored to your student roster. Explore additional scripts for container maintenance, host cleanup, volume management, and seamless task distribution via Jupyter Notebooks (.ipynb).
+Create an immersive STEM learning environment for middle school students using JupyterLab. Our project leverages Docker Compose to orchestrate container deployments. A Python script automates the generation of the Docker Compose file, tailored to your student roster. Explore additional scripts for container maintenance, host cleanup, volume management, and seamless task distribution via Jupyter Notebooks (.ipynb).
 
 ## Table of Contents
 
@@ -16,7 +16,7 @@ Create an immersive STEM learning environment for middle school students (ages 1
 
 ## Introduction
 
-**Empower Middle School Students with Our JupyterLab Programming Lab** Join us in empowering middle school students (ages 12 to 15) with a JupyterLab-based programming laboratory. We believe that hands-on experience is key to learning, and our platform facilitates just that. Through Docker Compose and a Python script, we make it effortless to set up and manage individual programming environments for your students, allowing them to dive into the world of coding with ease.
+Join us in empowering middle school students (ages 12 to 15) with a **JupyterLab-based programming laboratory**. We believe that hands-on experience is key to learning, and our platform facilitates just that. Through Docker Compose and a Python script, we make it effortless to set up and manage individual programming environments for your students, allowing them to dive into the world of coding with ease.
 
 ## Prerequisites
 
@@ -28,6 +28,31 @@ Before diving into our lab, make sure your system meets the following requiremen
 Please note that our lab is designed to function in an environment directly accessible from the internet. This is because each container uses two ports: port 1022 for SSH and port 1088 for accessing JupyterLab via a web browser. With each additional container, these port numbers increase by 100 (e.g., 1022, 1122, 1222 for SSH, or 1088, 1188, 1288 for Jupyter). Therefore, it's recommended that your server is exposed, meaning there are no NAT rules in place.
 
 Alternatively, the lab can operate within a LAN that allows for DNS customization. This can be achieved in environments with Active Directory or by manually configuring the hosts file.
+
+Additionally, it's important to have some experience using a text terminal and a basic understanding of bash, Docker, and Compose commands, as these skills will be essential for deploying and managing the lab.
+
+## Usage
+
+To get started, follow these steps:
+
+1) Download the project from GitHub using the following command:
+    ```bash
+    git clone https://github.com/incognia/Juno
+    ```
+2) Access the project's root directory:
+    ```bash
+    cd Juno
+    ```
+3) Inside the root directory, you will encounter a file named `containers.txt` with the following contents:
+    ```
+    juno
+    io
+    europa
+    ganymede
+    callisto
+    ```
+    Please note that we've used the names of the goddess Juno (Jupiter's wife) and the four Galilean moons. It's worth mentioning that my Docker host is named "galileo," but you are free to choose your own host name.
+
 
 ### Stack
 
