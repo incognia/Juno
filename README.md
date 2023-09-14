@@ -170,7 +170,7 @@ To ensure that your programming environments are tailored to your specific requi
 
 #### Customizing Language Package
 
-By default, the image includes JupyterLab and the Spanish (ES) language package. However, you may prefer to use a different language package based on your class's preferences. Here's how you can replace the Spanish language package with another, such as Italian (IT):
+As a default configuration, the image comes with JupyterLab and the Spanish (ES) language package preinstalled. This decision stems from the class's geographical location in Mexico City, where some students may not be fluent in English. Consequently, the code also includes comments in Spanish to facilitate comprehension. However, you have the flexibility to opt for an alternative language package that aligns with your class's needs. Here's a guide on how to replace the Spanish language package with another, such as Italian (IT):
 
 1.  In the same Dockerfile, locate the section for installing language packages, which appears like this:
     ```Dockerfile
