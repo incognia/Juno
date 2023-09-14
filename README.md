@@ -3,7 +3,7 @@
 
 Create an immersive STEM learning environment for middle school students using JupyterLab. Our project leverages Docker Compose to orchestrate container deployments. A Python script automates the generation of the Docker Compose file, tailored to your student roster. Explore additional scripts for container maintenance, host cleanup, volume management, and seamless task distribution via Jupyter Notebooks (.ipynb).
 
-**Special Recognition:** This project is deeply inspired by Serena Bonaretti's outstanding work on "Learn Python with Jupyter." Her project served as a valuable reference and source of inspiration for this project, and the exercises included in this laboratory are directly adapted from her work.
+**Special Recognition:** This project is deeply inspired by Serena Bonaretti's outstanding work on "[Learn Python with Jupyter](https://learnpythonwithjupyter.com/)." Her project served as a valuable reference and source of inspiration for this project, and the exercises included in this laboratory are directly adapted from her work.
 
 ## Table of Contents
 
