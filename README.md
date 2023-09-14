@@ -13,7 +13,6 @@ Create an immersive STEM learning environment for middle school students using J
 - [Usage](#usage)
 - [Lesson Handling](#lesson-handling)
 - [Deployment Management](#deployment-management)
-- [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 
@@ -354,16 +353,6 @@ Juno/
 ├── LICENSE
 └── README.md
 ```
-
-## Contributing
-
-Encourage others to contribute to your project, especially if you'd like help with Docker Compose configurations, JupyterLab extensions, or other aspects of the project. Specify how they can contribute, such as forking the repository and submitting pull requests.
-
-1. Fork the project
-2. Create a branch for your contribution: `git checkout -b feature/new-feature`
-3. Make your changes and commit: `git commit -m 'Add new feature'`
-4. Push your changes to your repository: `git push origin feature/new-feature`
-5. Open a pull request on GitHub
 
 ## License
 
