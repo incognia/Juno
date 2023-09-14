@@ -11,7 +11,8 @@ Create an immersive STEM learning environment for middle school students using J
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
-- [Managing the Deployment](#managing-the-deployment)
+- [Lesson Handling](#lesson-handling)
+- [Deployment Management](#deployment-management)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
@@ -117,7 +118,15 @@ If you're a student, here's how to access and use JupyterLab from your side:
     - To stop your JupyterLab session, go back to the SSH terminal and press `Ctrl + C`. Confirm the action when prompted.
     - To log out of the server, simply type `exit` in the SSH terminal.
 
-## Managing the Deployment
+## Lesson Handling
+
+One of the problems I've encountered when teaching programming is that, although the available books are relatively recent, the field of computer science advances so quickly that, within a few months, the information in the book or the examples become outdated or reference libraries or software components that have been deprecated.
+
+That's why Serena's project was a perfect fit for our STEM classroom. Bonaretti is gradually writing her book, and every 4 to 6 weeks, she releases a new lesson. The book is divided into 10 parts, each with a varying number of lessons. For each lesson, there is an associated Jupyter Notebook (.ipynb) file with code exercises. Currently, Serena has published lesson 21, which is the first one in part 6. The next lesson (Chapter 22) is scheduled for release on October 14, 2023, although it may vary because, as a voluntary endeavor, Serena doesn't always have time to publish on the planned date.
+
+I believe the best strategy to use an up-to-date textbook is to employ one that is still being written and revised.
+
+## Deployment Management
 
 Administering multiple containers can become complex once the workshop is underway. As part of a DevOps approach, it's crucial to ensure a consistent and automated deployment process for your class. When you start the first container, it triggers the image build using a Dockerfile, and subsequent containers inherit from it.
 
