@@ -11,7 +11,7 @@ Create an immersive STEM learning environment for middle school students using J
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
-- [Building the Project](#building-the-project)
+- [Managing the Deployment](#managing-the-deployment)
 - [Contributing](#contributing)
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
@@ -117,7 +117,7 @@ If you're a student, here's how to access and use JupyterLab from your side:
     - To stop your JupyterLab session, go back to the SSH terminal and press `Ctrl + C`. Confirm the action when prompted.
     - To log out of the server, simply type `exit` in the SSH terminal.
 
-## Managing the Deployment Stack with DevOps
+## Managing the Deployment
 
 Administering multiple containers can become complex once the workshop is underway. As part of a DevOps approach, it's crucial to ensure a consistent and automated deployment process for your class. When you start the first container, it triggers the image build using a Dockerfile, and subsequent containers inherit from it.
 
