@@ -33,17 +33,19 @@ Additionally, it's important to have some experience using a text terminal and a
 
 ## Usage
 
+### Deployment
+
 To get started, follow these steps:
 
-1) Download the project from GitHub using the following command:
+1)  Download the project from GitHub using the following command:
     ```bash
     git clone https://github.com/incognia/Juno
     ```
-2) Access the project's root directory:
+2)  Access the project's root directory:
     ```bash
     cd Juno
     ```
-3) Inside the root directory, you will encounter a file named `containers.txt` with the following contents:
+3)  Inside the root directory, you will encounter a file named `containers.txt` with the following contents:
     ```
     juno
     io
@@ -52,7 +54,45 @@ To get started, follow these steps:
     callisto
     ```
     Please note that we've used the names of the goddess Juno (Jupiter's wife) and the four Galilean moons. It's worth mentioning that my Docker host is named "galileo," but you are free to choose your own host name.
+4) You need to edit the containers.txt file to add the names of the students. Each student's name should be a single word in lowercase, without spaces or special characters like accents or symbols. We recommend using only letters and avoiding numbers.
 
+    Use a text editor like Nano to edit the file:
+    ```bash
+    nano containers.txt
+    ```
+5)  After personalizing the list, you can employ the `generator.py` script to produce the `compose.yaml` file. You can execute it directly with:
+    ```bash
+    ./generator.py
+    ```
+    or by invoking Python 3:
+    ```bash
+    python3 generator.py
+    ```
+6)  Once you've generated the compose.yaml file, you can initiate the containers using the standard command:
+    ```bash
+    docker-compose up -d
+    ```
+    Alternatively, you can employ the provided Bash script for this purpose with the `-b` option:
+    ```bash
+    ./build.sh -b
+    ```
+    Or simply run:
+    ```bash
+    bash build.sh
+    ```
+7)  If everything is configured correctly, you should have as many containers created as there are students in your `containers.txt` list. To verify that the containers have been successfully created, you can run:
+    ```bash
+    docker ps
+    ```
+    The output of docker ps should resemble the following:
+    ```bash
+    CONTAINER ID   IMAGE                                    PORTS                                                                              NAMES
+    86a548f3c194   eureka/jupyterlab:0.0.1-bookworm-slim    0.0.0.0:1222->22/tcp, :::1222->22/tcp, 0.0.0.0:1288->8888/tcp, :::1288->8888/tcp   Europa
+    c8bce06f2686   eureka/jupyterlab:0.0.1-bookworm-slim    0.0.0.0:1122->22/tcp, :::1122->22/tcp, 0.0.0.0:1188->8888/tcp, :::1188->8888/tcp   Io
+    8b913b32bbe0   eureka/jupyterlab:0.0.1-bookworm-slim    0.0.0.0:1022->22/tcp, :::1022->22/tcp, 0.0.0.0:1088->8888/tcp, :::1088->8888/tcp   Juno
+    3d9c4c74ebba   eureka/jupyterlab:0.0.1-bookworm-slim    0.0.0.0:1322->22/tcp, :::1322->22/tcp, 0.0.0.0:1388->8888/tcp, :::1388->8888/tcp   Ganymede
+    5d4c60e7a597   eureka/jupyterlab:0.0.1-bookworm-slim    0.0.0.0:1422->22/tcp, :::1422->22/tcp, 0.0.0.0:1488->8888/tcp, :::1488->8888/tcp   Callisto
+    ```
 
 ### Stack
 
