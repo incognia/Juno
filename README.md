@@ -86,13 +86,14 @@ To get started, follow these steps:
     ```
     The output of docker ps should resemble the following:
     ```bash
-    CONTAINER ID   PORTS                                                                              NAMES
-    86a548f3c194   0.0.0.0:1222->22/tcp, :::1222->22/tcp, 0.0.0.0:1288->8888/tcp, :::1288->8888/tcp   Europa
-    c8bce06f2686   0.0.0.0:1122->22/tcp, :::1122->22/tcp, 0.0.0.0:1188->8888/tcp, :::1188->8888/tcp   Io
-    8b913b32bbe0   0.0.0.0:1022->22/tcp, :::1022->22/tcp, 0.0.0.0:1088->8888/tcp, :::1088->8888/tcp   Juno
-    3d9c4c74ebba   0.0.0.0:1322->22/tcp, :::1322->22/tcp, 0.0.0.0:1388->8888/tcp, :::1388->8888/tcp   Ganymede
-    5d4c60e7a597   0.0.0.0:1422->22/tcp, :::1422->22/tcp, 0.0.0.0:1488->8888/tcp, :::1488->8888/tcp   Callisto
+    CONTAINER ID    STATUS                 PORTS                                                                              NAMES
+    86a548f3c194    Up 28 hours            0.0.0.0:1222->22/tcp, :::1222->22/tcp, 0.0.0.0:1288->8888/tcp, :::1288->8888/tcp   Europa
+    c8bce06f2686    Up 28 hours            0.0.0.0:1122->22/tcp, :::1122->22/tcp, 0.0.0.0:1188->8888/tcp, :::1188->8888/tcp   Io
+    8b913b32bbe0    Up 28 hours            0.0.0.0:1022->22/tcp, :::1022->22/tcp, 0.0.0.0:1088->8888/tcp, :::1088->8888/tcp   Juno
+    3d9c4c74ebba    Up 28 hours            0.0.0.0:1322->22/tcp, :::1322->22/tcp, 0.0.0.0:1388->8888/tcp, :::1388->8888/tcp   Ganymede
+    5d4c60e7a597    Up 28 hours            0.0.0.0:1422->22/tcp, :::1422->22/tcp, 0.0.0.0:1488->8888/tcp, :::1488->8888/tcp   Callisto
     ```
+    Ensure that the container names and ports are listed as expected, and that each container is "Up" and running.
 
 ### Stack
 
