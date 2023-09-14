@@ -115,13 +115,22 @@ If you're a student, here's how to access and use JupyterLab from your side:
     - To stop your JupyterLab session, go back to the SSH terminal and press `Ctrl + C`. Confirm the action when prompted.
     - To log out of the server, simply type `exit` in the SSH terminal.
 
-### Stack
+## Managing the Deployment Stack with DevOps
 
-![Juno Docker Stack](https://raw.githubusercontent.com/incognia/Juno/main/.assets/junoStack.svg)
+Administering multiple containers can become complex once the workshop is underway. As part of a DevOps approach, it's crucial to ensure a consistent and automated deployment process for your class. When you start the first container, it triggers the image build using a Dockerfile, and subsequent containers inherit from it.
+
+Adding new students is a breeze—all you need to do is append their names to the `containers.txt` file, rerun the `generator.py` script, and execute the `build.sh -b` command. This will create additional containers, automatically assigning the corresponding ports.
+
+Below, I've included an image that showcases the initial stack, featuring Debian 12 as the Host OS and specific versions of Docker and Compose. You'll also observe the Python runtime and JupyterLab running on top of it:
+
+![Initial Stack](https://raw.githubusercontent.com/incognia/Juno/main/.assets/junoStack.svg)
+
+This approach aligns with DevOps principles, ensuring a consistent and reproducible environment for every student's programming tasks.
 
 ### Volumes
 
 ![Juno Volumes](https://raw.githubusercontent.com/incognia/Juno/main/.assets/junoVolumes.svg)
+
 
 ## Project structure
 
