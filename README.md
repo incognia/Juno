@@ -1,14 +1,31 @@
-# Jupyter
+# Juno
+[![License: GPL3](https://img.shields.io/badge/License-GPLv3-bd0000.svg)](https://raw.githubusercontent.com/incognia/Juno/main/LICENSE) | ![Debian](https://img.shields.io/badge/Debian-v12.1-d80150.svg) ![Docker](https://img.shields.io/badge/Docker-v24.0.5-0db7ed.svg) ![Compose](https://img.shields.io/badge/Compose-v2.20.2-0db7ed.svg) ![Python](https://img.shields.io/badge/Python-v3.11.5-306998.svg) ![JupyterLab](https://img.shields.io/badge/JupyterLab-v4.0.5-f37726.svg)
+
 Learn Python with Jupyter
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Building the Project](#building-the-project)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
 ## Stack
 
-![Juno Docker Stack](https://raw.githubusercontent.com/incognia/Jupyter/main/.assets/junoStack.png)
+![Juno Docker Stack](https://raw.githubusercontent.com/incognia/Juno/main/.assets/junoStack.svg)
+
+## Volumes
+
+![Juno Volumes](https://raw.githubusercontent.com/incognia/Juno/main/.assets/junoVolumes.svg)
 
 ## Project structure
 
 ```bash
-Jupyter/
+Juno/
 ├── app/
 │   ├── etc/
 │   │   └── sshd_config
@@ -53,3 +70,12 @@ Jupyter/
 ├── LICENSE
 └── README.md
 ```
+
+## Acknowledgments
+
+I would like to extend my sincere thanks and credit to Serena Bonaretti for her inspiring work on "Learn Python with Jupyter." Her project served as a valuable reference and source of inspiration for this project.
+
+- **Learn Python with Jupyter**: Check out Serena's fantastic project at [Learn Python with Jupyter](https://learnpythonwithjupyter.com/).
+- **Serena Bonaretti on Twitter**: Follow Serena on Twitter [@serenabonaretti](https://twitter.com/serenabonaretti) for more insightful content and updates.
+
+Serena's dedication to making Python accessible through Jupyter notebooks has been a tremendous influence on this project, and I'm grateful for her contributions to the Python community.
