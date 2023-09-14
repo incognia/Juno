@@ -18,6 +18,17 @@ Create an immersive STEM learning environment for middle school students (ages 1
 
 **Empower Middle School Students with Our JupyterLab Programming Lab** Join us in empowering middle school students (ages 12 to 15) with a JupyterLab-based programming laboratory. We believe that hands-on experience is key to learning, and our platform facilitates just that. Through Docker Compose and a Python script, we make it effortless to set up and manage individual programming environments for your students, allowing them to dive into the world of coding with ease.
 
+## Prerequisites
+
+Before diving into our lab, make sure your system meets the following requirements:
+
+- A server equipped with Docker Engine, ideally running Debian or Alpine Linux.
+- Docker Compose to streamline container management.
+
+Please note that our lab is designed to function in an environment directly accessible from the internet. This is because each container uses two ports: port 1022 for SSH and port 1088 for accessing JupyterLab via a web browser. With each additional container, these port numbers increase by 100 (e.g., 1022, 1122, 1222 for SSH, or 1088, 1188, 1288 for Jupyter). Therefore, it's recommended that your server is exposed, meaning there are no NAT rules in place.
+
+Alternatively, the lab can operate within a LAN that allows for DNS customization. This can be achieved in environments with Active Directory or by manually configuring the hosts file.
+
 ### Stack
 
 ![Juno Docker Stack](https://raw.githubusercontent.com/incognia/Juno/main/.assets/junoStack.svg)
