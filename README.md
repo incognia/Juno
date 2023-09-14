@@ -124,7 +124,44 @@ One of the problems I've encountered when teaching programming is that, although
 
 That's why Serena's project was a perfect fit for our STEM classroom. Bonaretti is gradually writing her book, and every 4 to 6 weeks, she releases a new lesson. The book is divided into 10 parts, each with a varying number of lessons. For each lesson, there is an associated Jupyter Notebook (.ipynb) file with code exercises. Currently, Serena has published lesson 21, which is the first one in part 6. The next lesson (Chapter 22) is scheduled for release on October 14, 2023, although it may vary because, as a voluntary endeavor, Serena doesn't always have time to publish on the planned date.
 
-I believe the best strategy to use an up-to-date textbook is to employ one that is still being written and revised.
+This information is current as of today, September 14, 2023. I believe the best strategy to use an up-to-date textbook is to employ one that is still being written and revised.
+
+### The Notes
+
+I manually obtained Serena's Jupyter Notebooks from her project's official website (https://learnpythonwithjupyter.com/). While it's possible to automate the download process in the future using tools like curl or wget, I chose not to invest time in automation due to the relatively small number of files (currently 21). These files were downloaded and organized within the app/notes/ directory of this repository, structured as follows:
+
+```bash
+notes/
+├── 01_basics/
+│   ├── 01_string_input_print.ipynb
+│   └── 02_variables.ipynb
+├── 02_if_else/
+│   ├── 03_list_if_in_else.ipynb
+│   ├── 04_list_append_remove.ipynb
+│   ├── 05_list_index_pop_insert.ipynb
+│   ├── 06_list_slicing.ipynb
+│   └── 07_list_slicing_use.ipynb
+├── 03_for_loop/
+│   ├── 08_for_range.ipynb
+│   ├── 09_for_loop_if_equals.ipynb
+│   ├── 10_for_search.ipynb
+│   ├── 11_for_change_list.ipynb
+│   └── 12_for_create_list.ipynb
+├── 04_numbers/
+│   ├── 13_numbers.ipynb
+│   ├── 14_list_of_numbers.ipynb
+│   ├── 15_random.ipynb
+│   └── 16_intro_to_algos.ipynb
+├── 05_while/
+│   ├── 17_while_loop.ipynb
+│   ├── 18_while_conditions.ipynb
+│   ├── 19_combining_conditions.ipynb
+│   └── 20_booleans.ipynb
+├── 06_recap/
+│   └── 21_list_recap.ipynb
+├── containers.txt -> ../../containers.txt
+└── notes.py*
+```
 
 ## Deployment Management
 
@@ -239,28 +276,8 @@ Juno/
 │       ├── 01_basics/
 │       │   ├── 01_string_input_print.ipynb
 │       │   └── 02_variables.ipynb
-│       ├── 02_if_else/
-│       │   ├── 03_list_if_in_else.ipynb
-│       │   ├── 04_list_append_remove.ipynb
-│       │   ├── 05_list_index_pop_insert.ipynb
-│       │   ├── 06_list_slicing.ipynb
-│       │   └── 07_list_slicing_use.ipynb
-│       ├── 03_for_loop/
-│       │   ├── 08_for_range.ipynb
-│       │   ├── 09_for_loop_if_equals.ipynb
-│       │   ├── 10_for_search.ipynb
-│       │   ├── 11_for_change_list.ipynb
-│       │   └── 12_for_create_list.ipynb
-│       ├── 04_numbers/
-│       │   ├── 13_numbers.ipynb
-│       │   ├── 14_list_of_numbers.ipynb
-│       │   ├── 15_random.ipynb
-│       │   └── 16_intro_to_algos.ipynb
-│       ├── 05_while/
-│       │   ├── 17_while_loop.ipynb
-│       │   ├── 18_while_conditions.ipynb
-│       │   ├── 19_combining_conditions.ipynb
-│       │   └── 20_booleans.ipynb
+│       ├── [...]
+│       │   └── [...]
 │       ├── 06_recap/
 │       │   └── 21_list_recap.ipynb
 │       ├── containers.txt -> ../../containers.txt
