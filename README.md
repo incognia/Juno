@@ -39,15 +39,15 @@ Additionally, it's important to have some experience using a text terminal and a
 
 To get started, follow these steps:
 
-1)  Download the project from GitHub using the following command:
+1.  Download the project from GitHub using the following command:
     ```bash
     git clone https://github.com/incognia/Juno
     ```
-2)  Access the project's root directory:
+2.  Access the project's root directory:
     ```bash
     cd Juno
     ```
-3)  Inside the root directory, you will encounter a file named `containers.txt` with the following contents:
+3.  Inside the root directory, you will encounter a file named `containers.txt` with the following contents:
     ```
     juno
     io
@@ -56,13 +56,13 @@ To get started, follow these steps:
     callisto
     ```
     Please note that we've used the names of the goddess Juno (Jupiter's wife) and the four Galilean moons. It's worth mentioning that my Docker host is named "galileo," but you are free to choose your own host name.
-4) You need to edit the containers.txt file to add the names of the students. Each student's name should be a single word in lowercase, without spaces or special characters like accents or symbols. We recommend using only letters and avoiding numbers.
+4. You need to edit the containers.txt file to add the names of the students. Each student's name should be a single word in lowercase, without spaces or special characters like accents or symbols. We recommend using only letters and avoiding numbers.
 
     Use a text editor like Nano to edit the file:
     ```bash
     nano containers.txt
     ```
-5)  After personalizing the list, you can employ the `generator.py` script to produce the `compose.yaml` file. You can execute it directly with:
+5.  After personalizing the list, you can employ the `generator.py` script to produce the `compose.yaml` file. You can execute it directly with:
     ```bash
     ./generator.py
     ```
@@ -70,7 +70,7 @@ To get started, follow these steps:
     ```bash
     python3 generator.py
     ```
-6)  Once you've generated the compose.yaml file, you can initiate the containers using the standard command:
+6.  Once you've generated the compose.yaml file, you can initiate the containers using the standard command:
     ```bash
     docker-compose up -d
     ```
@@ -82,7 +82,7 @@ To get started, follow these steps:
     ```bash
     bash build.sh
     ```
-7)  If everything is configured correctly, you should have as many containers created as there are students in your `containers.txt` list. To verify that the containers have been successfully created, you can run:
+7.  If everything is configured correctly, you should have as many containers created as there are students in your `containers.txt` list. To verify that the containers have been successfully created, you can run:
     ```bash
     docker ps
     ```
@@ -101,17 +101,17 @@ To get started, follow these steps:
 
 If you're a student, here's how to access and use JupyterLab from your side:
 
-1)  Connect to the server using SSH with the following command (replace `<username>` and `<server_ip>` with your instructor's provided details):
+1.  Connect to the server using SSH with the following command (replace `<username>` and `<server_ip>` with your instructor's provided details):
     ```bash
     ssh eureka@<server_ip> -p 1022
     ```
     Use the default password `3Ur3k4` when prompted.
-2)  Once connected, simply enter the following command to start JupyterLab:
+2.  Once connected, simply enter the following command to start JupyterLab:
     ```bash
     jupyter-lab
     ```
-3)  JupyterLab will provide you with a URL and a token. Please note that the port in the URL will be set to 8888 by default. However, you should manually change the port in your web browser's address bar to match the JupyterLab port associated with your specific container. The first two digits of the JupyterLab port correspond to the first two digits of the SSH port you used in the previous step. For example, if you used SSH port 1022, change the URL to `http://<server_ip>:1088/lab?token=<your_token>` if you're working in the first container.
-4)  Access JupyterLab using the modified URL with the appropriate port and the token provided. Please note that the token changes with each execution.
+3.  JupyterLab will provide you with a URL and a token. Please note that the port in the URL will be set to 8888 by default. However, you should manually change the port in your web browser's address bar to match the JupyterLab port associated with your specific container. The first two digits of the JupyterLab port correspond to the first two digits of the SSH port you used in the previous step. For example, if you used SSH port 1022, change the URL to `http://<server_ip>:1088/lab?token=<your_token>` if you're working in the first container.
+4.  Access JupyterLab using the modified URL with the appropriate port and the token provided. Please note that the token changes with each execution.
 
     Remember to log out of the server and stop your JupyterLab session when you're done:
     - To stop your JupyterLab session, go back to the SSH terminal and press `Ctrl + C`. Confirm the action when prompted.
@@ -128,6 +128,63 @@ Below, I've included an image that showcases the initial stack, featuring Debian
 ![Initial Stack](https://raw.githubusercontent.com/incognia/Juno/main/.assets/junoStack.svg)
 
 This approach aligns with DevOps principles, ensuring a consistent and reproducible environment for every student's programming tasks.
+
+### Building the Image
+
+#### Customizing Package Installation
+
+To ensure that your programming environments are tailored to your specific requirements, you can customize the package installation process in the base image. To do this, follow these steps:
+
+1.  Navigate to the root directory of the project, where you will find the Dockerfile.
+
+2.  Open the Dockerfile using a text editor of your choice.
+
+3.  Locate the section for installing additional packages, which looks like this:
+    ```Dockerfile
+    # Instalar paquetes adicionales de forma silenciosa
+    RUN apt-get install -y \ 
+        # Autocompletado de Bash 
+        bash-completion \
+        # Transferencia de datos
+        curl \
+        # Monitor de procesos
+        htop \
+        # Administrador de archivos
+        mc \
+        # Editor de texto simple
+        nano \
+        # Información del sistema
+        neofetch \
+        # Editor de texto avanzado
+        neovim \
+        # Entorno en tiempo de ejecución
+        nodejs \
+        # Servidor SSH
+        openssh-server \
+        # Ejecutar comandos con privilegios
+        sudo \
+        # Herramienta de descarga
+        wget
+    ```
+4.  Customize the package installation according to your class's specific needs. You can add more packages, remove some of the ones mentioned, or make any other adjustments as required.
+
+#### Customizing Language Package
+
+By default, the image includes JupyterLab and the Spanish (ES) language package. However, you may prefer to use a different language package based on your class's preferences. Here's how you can replace the Spanish language package with another, such as Italian (IT):
+
+1.  In the same Dockerfile, locate the section for installing language packages, which appears like this:
+    ```Dockerfile
+    # Instalamos JupyterLab y el paquete de idioma en español (ES)
+    RUN  pip install jupyterlab  jupyterlab-language-pack-es-ES
+    ```
+    and replace the code with this:
+    ```Dockerfile
+    # Installiamo JupyterLab e il pacchetto di lingua in italiano (IT)
+    RUN  pip install jupyterlab  jupyterlab-language-pack-it-IT
+    ```
+ 2. Ensure that the language package you want to install is available in the Python repository and use the correct package format when installing it (e.g., jupyterlab-language-pack-it-IT for Italian).
+
+ With these steps, you can seamlessly personalize the image construction process to meet the specific needs and language preferences of your class. Remember to save your Dockerfile changes before proceeding with image building.
 
 ### Volumes
 
