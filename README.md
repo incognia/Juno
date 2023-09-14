@@ -199,7 +199,26 @@ These volumes provide an essential layer of persistence, ensuring that students'
 
 This approach enhances the flexibility and reliability of the learning environment, making it easier to manage and update while minimizing disruptions for the students.
 
-## Project structure
+If necessary, volumes can be deleted using the `build.sh` script with the options `-a`, `-d` or `-v`. This script offers several options for management. When executed without additional parameters, it displays a message with usage examples:
+```bash
+./build.sh
+```
+script output:
+```bash
+Uso: ./build.sh [-a] [-b] [-c] [-d] [-p] [-r] [-v]
+Opciones:
+  -a  Realizar todas las acciones (limpiar, construir, borrar volúmenes)
+  -b  Construir los contenedores
+  -c  Limpiar contenedores y eliminar la imagen
+  -d  Limpiar contenedores, eliminar la imagen y borrar volúmenes
+  -p  Limpiar recursos no utilizados de Docker
+  -r  Reconstruir los contenedores (implica limpiar y construir)
+  -v  Borrar volúmenes
+```
+
+#### Project structure
+
+We've included a tree diagram depicting the general project structure, which shows the location of the scripts for management. If you modify the project, you can generate this list again by executing `tree -F .`, and then add the output to this README:
 
 ```bash
 Juno/
