@@ -128,7 +128,7 @@ This information is current as of today, September 14, 2023. I believe the best 
 
 ### The Notes
 
-I manually obtained Serena's Jupyter Notebooks from her project's official website (https://learnpythonwithjupyter.com/). While it's possible to automate the download process in the future using tools like curl or wget, I chose not to invest time in automation due to the relatively small number of files (currently 21). These files were downloaded and organized within the app/notes/ directory of this repository, structured as follows:
+I manually obtained Serena's Jupyter Notebooks from her [project's official website](https://learnpythonwithjupyter.com/). While it's possible to automate the download process in the future using tools like `curl` or `wget`, I chose not to invest time in automation due to the relatively small number of files (currently 21). These files were downloaded and organized within the app/notes/ directory of this repository, structured as follows:
 
 ```bash
 notes/
@@ -162,6 +162,68 @@ notes/
 ├── containers.txt -> ../../containers.txt
 └── notes.py*
 ```
+Notice that in the same directory, there is a symbolic link that points to the `containers.txt` file at the root of the project. I use that same file to iterate the actions of the `notes.py` script.
+
+I dedicated some time to the notes.py script. Given the varying number of containers, we needed an easy way to copy the notes to all of them. This can be achieved by specifying a subfolder or by using the `-a` parameter to copy all of them in one go. This Python script is designed to facilitate the copying of directories (subfolders) to Docker containers. It offers two main use cases:
+
+1.  Bulk Copying (With `-a` Argument): When executed with the `-a` argument, the script copies all subfolders from the current directory to multiple Docker containers defined in "containers.txt." It ensures that the copied files and subfolders are owned by the "eureka" user within each container:
+    ```bash
+    ./notes.py -a
+    ```
+    The output will be similar to this:
+    ```bash
+    Directorios disponibles para copia:
+
+    01_basics
+    02_if_else
+    03_for_loop
+    04_numbers
+    05_while
+    06_recap
+    Successfully copied 26.1kB to Juno:/home/eureka/
+    Successfully copied 26.1kB to Io:/home/eureka/
+    Successfully copied 26.1kB to Europa:/home/eureka/
+    Successfully copied 26.1kB to Ganymede:/home/eureka/
+    Successfully copied 26.1kB to Callisto:/home/eureka/
+    [...]
+    Successfully copied 8.7kB to Juno:/home/eureka/
+    Successfully copied 8.7kB to Io:/home/eureka/
+    Successfully copied 8.7kB to Europa:/home/eureka/
+    Successfully copied 8.7kB to Ganymede:/home/eureka/
+    Successfully copied 8.7kB to Callisto:/home/eureka/
+
+    Proceso completado
+    ```
+    This will copy all available files in the notes directory to all active containers.
+2.  Single Subfolder Copying (Without `-a` Argument): Without the `-a` argument, the script prompts the user to specify the name of a particular subfolder to copy. It then copies that subfolder to all Docker containers listed in `containers.txt`, maintaining proper ownership. To do this, you can execute:
+    ```bash
+    ./notes.py
+    ```
+    The corresponding output will look something like this:
+    ```bash
+    Directorios disponibles para copia:
+
+    01_basics
+    02_if_else
+    03_for_loop
+    04_numbers
+    05_while
+    06_recap
+
+
+    Ingrese el nombre de la subcarpeta a copiar:
+    ```
+    You respond to the prompt by entering one of the listed available folders, for example, `01_basics`, and press Enter. The terminal will return:
+    ```bash
+    Successfully copied 8.7kB to Juno:/home/eureka/
+    Successfully copied 8.7kB to Io:/home/eureka/
+    Successfully copied 8.7kB to Europa:/home/eureka/
+    Successfully copied 8.7kB to Ganymede:/home/eureka/
+    Successfully copied 8.7kB to Callisto:/home/eureka/
+
+    Proceso completado
+    ```
+    This will copy the selected subfolder in the notes directory to all active containers.
 
 ## Deployment Management
 
