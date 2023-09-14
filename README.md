@@ -13,7 +13,6 @@ Create an immersive STEM learning environment for middle school students using J
 - [Usage](#usage)
 - [Lesson Handling](#lesson-handling)
 - [Deployment Management](#deployment-management)
-- [License](#license)
 - [Acknowledgments](#acknowledgments)
 
 ## Introduction
@@ -353,10 +352,6 @@ Juno/
 ├── LICENSE
 └── README.md
 ```
-
-## License
-
-This project is licensed under the [GNU General Public License v3.0 (GPL-3.0)](https://www.gnu.org/licenses/gpl-3.0.html) - see the [LICENSE](https://raw.githubusercontent.com/incognia/Juno/main/LICENSE) file for more details.
 
 ## Acknowledgments
 
