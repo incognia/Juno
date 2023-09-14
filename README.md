@@ -56,7 +56,7 @@ To get started, follow these steps:
     callisto
     ```
     Please note that we've used the names of the goddess Juno (Jupiter's wife) and the four Galilean moons. It's worth mentioning that my Docker host is named "galileo," but you are free to choose your own host name.
-4. You need to edit the containers.txt file to add the names of the students. Each student's name should be a single word in lowercase, without spaces or special characters like accents or symbols. We recommend using only letters and avoiding numbers.
+4.  You need to edit the containers.txt file to add the names of the students. Each student's name should be a single word in lowercase, without spaces or special characters like accents or symbols. We recommend using only letters and avoiding numbers.
 
     Use a text editor like Nano to edit the file:
     ```bash
@@ -78,7 +78,7 @@ To get started, follow these steps:
     ```bash
     ./build.sh -b
     ```
-    Or simply run:
+    or simply run:
     ```bash
     bash build.sh
     ```
@@ -240,7 +240,7 @@ Juno/
 └── README.md
 ```
 
-## Contributing
+## Contribuciones
 
 Encourage others to contribute to your project, especially if you'd like help with Docker Compose configurations, JupyterLab extensions, or other aspects of the project. Specify how they can contribute, such as forking the repository and submitting pull requests.
 
@@ -249,7 +249,6 @@ Encourage others to contribute to your project, especially if you'd like help wi
 3. Make your changes and commit: `git commit -m 'Add new feature'`
 4. Push your changes to your repository: `git push origin feature/new-feature`
 5. Open a pull request on GitHub
-
 
 ## License
 
