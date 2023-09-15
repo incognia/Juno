@@ -355,9 +355,13 @@ Juno/
 
 ## Acknowledgments
 
-I would like to extend my sincere thanks and credit to Serena Bonaretti for her inspiring work on "Learn Python with Jupyter." Her project served as a valuable reference and source of inspiration for this project.
+I would like to extend my sincere thanks and credit to [Serena Bonaretti](https://github.com/sbonaretti) for her inspiring work on "Learn Python with Jupyter." Her project served as a valuable reference and source of inspiration for this project.
 
 - **Learn Python with Jupyter**: Check out Serena's fantastic project at [Learn Python with Jupyter](https://learnpythonwithjupyter.com/).
 - **Serena Bonaretti on Twitter**: Follow Serena on Twitter [@serenabonaretti](https://twitter.com/serenabonaretti) for more insightful content and updates.
 
 Serena's dedication to making Python accessible through Jupyter notebooks has been a tremendous influence on this project, and I'm grateful for her contributions to the Python community.
+
+I would also like to express my heartfelt gratitude to three of my outstanding students, Carlos, [Ian](https://github.com/calmestprism226), and Fernando. Their remarkable talent, curiosity, and intelligence were instrumental in the development of the solution documented in this text. Teaching them for over 6 years has not only made me a better instructor but also a better human being. Their support and feedback have been invaluable throughout this journey.
+
+Special thanks go to my dear friend and apprentice, [Amelia Chavelas](https://github.com/ameliadharani). Her unwavering support, patience, enthusiasm, and encouragement mean the world to me, not only in this project but in everything I do.
