@@ -359,7 +359,7 @@ Juno/
 ├── entrypoint.sh*
 ├── generator.py*
 ├── LICENSE
-├── ports.py*
+├── ports.sh*
 └── README.md
 ```
 
