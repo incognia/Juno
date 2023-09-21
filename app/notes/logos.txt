@@ -7,3 +7,6 @@ bruno
 max
 iyari
 axel
+erik
+anja
+emiliano
