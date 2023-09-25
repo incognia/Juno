@@ -11,3 +11,9 @@ erik
 anja
 emiliano
 alfredo
+sid
+lucia
+leon
+paolo
+diego
+santi
