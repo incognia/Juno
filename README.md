@@ -1,5 +1,5 @@
 # Juno | JupyterLab-Based STEM Learning Environment
-[![License: GPL3](https://img.shields.io/badge/License-GPLv3-bd0000.svg)](https://raw.githubusercontent.com/incognia/Juno/main/LICENSE) | ![Debian](https://img.shields.io/badge/Debian-v12.1-d80150.svg) ![Docker](https://img.shields.io/badge/Docker-v24.0.5-0db7ed.svg) ![Compose](https://img.shields.io/badge/Compose-v2.20.2-0db7ed.svg) ![Python](https://img.shields.io/badge/Python-v3.11.5-306998.svg) ![JupyterLab](https://img.shields.io/badge/JupyterLab-v4.0.5-f37726.svg)
+[![License: GPL3](https://img.shields.io/badge/License-GPLv3-bd0000.svg)](https://raw.githubusercontent.com/incognia/Juno/main/LICENSE) | ![Debian](https://img.shields.io/badge/Debian-v12.1-d80150.svg) ![Docker](https://img.shields.io/badge/Docker-v24.0.6-0db7ed.svg) ![Compose](https://img.shields.io/badge/Compose-v2.21.0-0db7ed.svg) ![Python](https://img.shields.io/badge/Python-v3.11.5-306998.svg) ![JupyterLab](https://img.shields.io/badge/JupyterLab-v4.0.6-f37726.svg)
 
 Create an immersive STEM learning environment for middle school students using JupyterLab. Our project leverages Docker Compose to orchestrate container deployments. A Python script automates the generation of the Docker Compose file, tailored to your student roster. Explore additional scripts for container maintenance, host cleanup, volume management, and seamless task distribution via Jupyter Notebooks (.ipynb).
 
@@ -336,18 +336,14 @@ Juno/
 │       ├── 01_basics/
 │       │   ├── 01_string_input_print.ipynb
 │       │   └── 02_variables.ipynb
-│       ├── 02_if_else/
-│       │   ├── 03_list_if_in_else.ipynb
-│       │   ├── 04_list_append_remove.ipynb
-│       │   ├── 05_list_index_pop_insert.ipynb
-│       │   ├── 06_list_slicing.ipynb
-│       │   └── 07_list_slicing_use.ipynb
 │       ├── [...]
 │       │   └── [...]
 │       ├── 06_recap/
 │       │   └── 21_list_recap.ipynb
 │       ├── containers.txt -> ../../containers.txt
+│       ├── delnotes.sh*
 │       ├── eureka.txt
+│       ├── folders.txt
 │       ├── logos.txt
 │       └── notes.py*
 ├── build.sh*
@@ -356,6 +352,7 @@ Juno/
 ├── containers.txt
 ├── CONTRIBUTING.md
 ├── Dockerfile
+├── domain.sh*
 ├── entrypoint.sh*
 ├── generator.py*
 ├── LICENSE
