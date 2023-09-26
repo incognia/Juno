@@ -1,0 +1,6 @@
+/home/eureka/01_basics
+/home/eureka/02_if_else
+/home/eureka/03_for_loop
+/home/eureka/04_numbers
+/home/eureka/05_while
+/home/eureka/06_recap
