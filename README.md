@@ -369,6 +369,6 @@ I would like to extend my sincere thanks and credit to [Serena Bonaretti](https:
 
 Serena's dedication to making Python accessible through Jupyter notebooks has been a tremendous influence on this project, and I'm grateful for her contributions to the Python community.
 
-I would also like to express my heartfelt gratitude to three of my outstanding students, [Carlos](https://github.com/cgzdev), [Ian](https://github.com/calmestprism226), and Fernando. Their remarkable talent, curiosity, and intelligence were instrumental in the development of the solution documented in this text. Teaching them for over 6 years has not only made me a better instructor but also a better human being. Their support and feedback have been invaluable throughout this journey.
+I would also like to express my heartfelt gratitude to three of my outstanding students, [Carlos](https://github.com/cgzdev), [Ian](https://github.com/calmestprism226), and [Fernando](https://github.com/fer1495). Their remarkable talent, curiosity, and intelligence were instrumental in the development of the solution documented in this text. Teaching them for over 6 years has not only made me a better instructor but also a better human being. Their support and feedback have been invaluable throughout this journey.
 
 Special thanks go to my dear friend and apprentice, [Amelia Chavelas](https://github.com/ameliadharani). Her unwavering support, patience, enthusiasm, and encouragement mean the world to me, not only in this project but in everything I do.
