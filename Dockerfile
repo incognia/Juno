@@ -1,11 +1,11 @@
-FROM python:slim-bookworm
+FROM python:3.11.6-slim-bookworm
 
 # Actualiza la lista de paquetes disponibles
 RUN apt-get update \
     # Instala el paquete "aptitude" de forma silenciosa
-    && apt-get install -y aptitude \
+    && apt-get install -y aptitude
     # Realiza una actualización segura de paquetes de forma silenciosa
-    && aptitude safe-upgrade -y
+    # && aptitude safe-upgrade -y
 
 # Instalar paquetes adicionales de forma silenciosa
 RUN apt-get install -y \ 
@@ -58,7 +58,7 @@ RUN cat /app/etc/sshd_config > /etc/ssh/sshd_config
 USER eureka
 
 # Instalamos JupyterLab y el paquete de idioma en español (ES)
-RUN  pip install jupyterlab  jupyterlab-language-pack-es-ES
+RUN pip install jupyterlab jupyterlab-language-pack-es-ES
 
 # Cambiamos de nuevo al usuario "root"
 USER root
