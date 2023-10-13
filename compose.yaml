@@ -76,6 +76,300 @@ services:
       - callisto_home:/home/eureka
       - callisto_ssh:/etc/ssh
 
+  caleb:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Caleb
+    hostname: caleb
+    ports:
+      - 1522:22
+      - 1588:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - caleb_home:/home/eureka
+      - caleb_ssh:/etc/ssh
+
+  ceballos:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Ceballos
+    hostname: ceballos
+    ports:
+      - 1622:22
+      - 1688:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - ceballos_home:/home/eureka
+      - ceballos_ssh:/etc/ssh
+
+  julia:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Julia
+    hostname: julia
+    ports:
+      - 1722:22
+      - 1788:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - julia_home:/home/eureka
+      - julia_ssh:/etc/ssh
+
+  irene:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Irene
+    hostname: irene
+    ports:
+      - 1822:22
+      - 1888:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - irene_home:/home/eureka
+      - irene_ssh:/etc/ssh
+
+  ivann:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Ivann
+    hostname: ivann
+    ports:
+      - 1922:22
+      - 1988:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - ivann_home:/home/eureka
+      - ivann_ssh:/etc/ssh
+
+  bruno:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Bruno
+    hostname: bruno
+    ports:
+      - 2022:22
+      - 2088:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - bruno_home:/home/eureka
+      - bruno_ssh:/etc/ssh
+
+  max:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Max
+    hostname: max
+    ports:
+      - 2122:22
+      - 2188:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - max_home:/home/eureka
+      - max_ssh:/etc/ssh
+
+  iyari:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Iyari
+    hostname: iyari
+    ports:
+      - 2222:22
+      - 2288:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - iyari_home:/home/eureka
+      - iyari_ssh:/etc/ssh
+
+  axel:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Axel
+    hostname: axel
+    ports:
+      - 2322:22
+      - 2388:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - axel_home:/home/eureka
+      - axel_ssh:/etc/ssh
+
+  erik:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Erik
+    hostname: erik
+    ports:
+      - 2422:22
+      - 2488:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - erik_home:/home/eureka
+      - erik_ssh:/etc/ssh
+
+  anja:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Anja
+    hostname: anja
+    ports:
+      - 2522:22
+      - 2588:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - anja_home:/home/eureka
+      - anja_ssh:/etc/ssh
+
+  emiliano:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Emiliano
+    hostname: emiliano
+    ports:
+      - 2622:22
+      - 2688:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - emiliano_home:/home/eureka
+      - emiliano_ssh:/etc/ssh
+
+  alfredo:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Alfredo
+    hostname: alfredo
+    ports:
+      - 2722:22
+      - 2788:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - alfredo_home:/home/eureka
+      - alfredo_ssh:/etc/ssh
+
+  sid:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Sid
+    hostname: sid
+    ports:
+      - 2822:22
+      - 2888:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - sid_home:/home/eureka
+      - sid_ssh:/etc/ssh
+
+  lucia:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Lucia
+    hostname: lucia
+    ports:
+      - 2922:22
+      - 2988:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - lucia_home:/home/eureka
+      - lucia_ssh:/etc/ssh
+
+  leon:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Leon
+    hostname: leon
+    ports:
+      - 3022:22
+      - 3088:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - leon_home:/home/eureka
+      - leon_ssh:/etc/ssh
+
+  paolo:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Paolo
+    hostname: paolo
+    ports:
+      - 3122:22
+      - 3188:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - paolo_home:/home/eureka
+      - paolo_ssh:/etc/ssh
+
+  diego:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Diego
+    hostname: diego
+    ports:
+      - 3222:22
+      - 3288:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - diego_home:/home/eureka
+      - diego_ssh:/etc/ssh
+
+  santi:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Santi
+    hostname: santi
+    ports:
+      - 3322:22
+      - 3388:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - santi_home:/home/eureka
+      - santi_ssh:/etc/ssh
+
+  camila:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Camila
+    hostname: camila
+    ports:
+      - 3422:22
+      - 3488:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - camila_home:/home/eureka
+      - camila_ssh:/etc/ssh
+
+  teodoro:
+    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    container_name: Teodoro
+    hostname: teodoro
+    ports:
+      - 3522:22
+      - 3588:8888
+    tty: true
+    stdin_open: true
+    restart: always
+    volumes:
+      - teodoro_home:/home/eureka
+      - teodoro_ssh:/etc/ssh
+
 volumes:
   juno_home:
   juno_ssh:
@@ -87,3 +381,45 @@ volumes:
   ganymede_ssh:
   callisto_home:
   callisto_ssh:
+  caleb_home:
+  caleb_ssh:
+  ceballos_home:
+  ceballos_ssh:
+  julia_home:
+  julia_ssh:
+  irene_home:
+  irene_ssh:
+  ivann_home:
+  ivann_ssh:
+  bruno_home:
+  bruno_ssh:
+  max_home:
+  max_ssh:
+  iyari_home:
+  iyari_ssh:
+  axel_home:
+  axel_ssh:
+  erik_home:
+  erik_ssh:
+  anja_home:
+  anja_ssh:
+  emiliano_home:
+  emiliano_ssh:
+  alfredo_home:
+  alfredo_ssh:
+  sid_home:
+  sid_ssh:
+  lucia_home:
+  lucia_ssh:
+  leon_home:
+  leon_ssh:
+  paolo_home:
+  paolo_ssh:
+  diego_home:
+  diego_ssh:
+  santi_home:
+  santi_ssh:
+  camila_home:
+  camila_ssh:
+  teodoro_home:
+  teodoro_ssh:
