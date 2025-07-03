@@ -1,5 +1,5 @@
 # Juno | JupyterLab-Based STEM Learning Environment
-[![License: GPL3](https://img.shields.io/badge/License-GPLv3-bd0000.svg)](https://raw.githubusercontent.com/incognia/Juno/main/LICENSE) | ![Debian](https://img.shields.io/badge/Debian-v12.1-d80150.svg) ![Docker](https://img.shields.io/badge/Docker-v24.0.6-0db7ed.svg) ![Compose](https://img.shields.io/badge/Compose-v2.21.0-0db7ed.svg) ![Python](https://img.shields.io/badge/Python-v3.13.5-306998.svg) ![JupyterLab](https://img.shields.io/badge/JupyterLab-v4.4.4-f37726.svg)
+[![License: GPL3](https://img.shields.io/badge/License-GPLv3-bd0000.svg)](https://raw.githubusercontent.com/incognia/Juno/main/LICENSE) | ![Debian](https://img.shields.io/badge/Debian-12+-d80150.svg) ![Docker](https://img.shields.io/badge/Docker-24.0+-0db7ed.svg) ![Compose](https://img.shields.io/badge/Compose-v2.21+-0db7ed.svg) ![Python](https://img.shields.io/badge/Python-3.13+-306998.svg) ![JupyterLab](https://img.shields.io/badge/JupyterLab-4.4+-f37726.svg)
 
 Create an immersive STEM learning environment for middle school students using JupyterLab. Our project leverages Docker Compose to orchestrate container deployments. A Python script automates the generation of the Docker Compose file, tailored to your student roster. Explore additional scripts for container maintenance, host cleanup, volume management, and seamless task distribution via Jupyter Notebooks (.ipynb).
 
@@ -60,7 +60,7 @@ sudo usermod -aG docker $USER
 - These instructions are optimized for current LTS/stable versions and have been tested on:
   - Ubuntu 24.04 LTS
   - Debian 12 (Bookworm)
-  - Fedora 42 (Adams)
+  - Fedora 40+ (current stable releases)
   - RHEL 9+ and derivatives
 - Verify installation with: `docker --version` and `docker compose version`
 - For older distributions, consult the official Docker documentation.
@@ -110,7 +110,7 @@ To get started, follow these steps:
     ```
 6.  Once you've generated the compose.yaml file, you can initiate the containers using the standard command:
     ```bash
-    docker-compose up -d
+    docker compose up -d
     ```
     Alternatively, you can employ the provided Bash script for this purpose with the `-b` option:
     ```bash
@@ -153,7 +153,7 @@ To get started, follow these steps:
     The dashboard installation script (`dashboard.sh`) has been tested and validated on:
     - **Ubuntu 24.04 LTS** - uses `apt` package manager with `nodejs` and `npm` packages
     - **Debian 12 (Bookworm)** - uses `apt` package manager with `nodejs` and `npm` packages
-    - **Fedora 42+** - uses `dnf` package manager with `nodejs` and `npm` packages
+    - **Fedora 40+** - uses `dnf` package manager with `nodejs` and `npm` packages
     - **RHEL 9+ derivatives** (CentOS Stream, Rocky Linux, AlmaLinux) - uses `dnf` package manager
     
     The script includes:
@@ -173,7 +173,8 @@ To get started, follow these steps:
     - SSH connection details for each container
     - Manual refresh functionality to update information on-demand
     - Responsive design that works on desktop and mobile devices
-7.  If everything is configured correctly, you should have as many containers created as there are students in your `containers.txt` list. To verify that the containers have been successfully created, you can run:
+
+8.  If everything is configured correctly, you should have as many containers created as there are students in your `containers.txt` list. To verify that the containers have been successfully created, you can run:
     ```bash
     docker ps
     ```
@@ -212,9 +213,9 @@ If you're a student, here's how to access and use JupyterLab from your side:
 
 One of the problems I've encountered when teaching programming is that, although the available books are relatively recent, the field of computer science advances so quickly that, within a few months, the information in the book or the examples become outdated or reference libraries or software components that have been deprecated.
 
-That's why Serena's project was a perfect fit for our STEM classroom. Bonaretti is gradually writing her book, and every 4 to 6 weeks, she releases a new lesson. The book is divided into 10 parts, each with a varying number of lessons. For each lesson, there is an associated Jupyter Notebook (.ipynb) file with code exercises. Currently, Serena has published lesson 21, which is the first one in part 6. The next lesson (Chapter 22) is scheduled for release on October 14, 2023, although it may vary because, as a voluntary endeavor, Serena doesn't always have time to publish on the planned date.
+That's why Serena's project was a perfect fit for our STEM classroom. Bonaretti has been continuously developing her book, releasing new lessons periodically. The book is divided into multiple parts, each with a varying number of lessons. For each lesson, there is an associated Jupyter Notebook (.ipynb) file with code exercises. 
 
-This information is current as of today, September 14, 2023. I believe the best strategy to use an up-to-date textbook is to employ one that is still being written and revised.
+As this is an ongoing project, we recommend checking the [Learn Python with Jupyter website](https://learnpythonwithjupyter.com/) for the most current lesson availability. The beauty of using a living textbook is that it continues to evolve and improve, incorporating the latest best practices in Python education.
 
 ### The Notes
 
@@ -420,6 +421,15 @@ We've included a tree diagram depicting the general project structure, which sho
 
 ```bash
 Juno/
+├── .assets/
+│   ├── build.py*
+│   ├── compose.bkp
+│   ├── junoDashboard.png
+│   ├── junoStack.png
+│   ├── junoStack.svg
+│   ├── junoVolumes.png
+│   ├── junoVolumes.svg
+│   └── ports.py*
 ├── app/
 │   ├── etc/
 │   │   └── sshd_config
@@ -438,11 +448,15 @@ Juno/
 │       ├── folders.txt
 │       ├── logos.txt
 │       └── notes.py*
+├── dashboard/
+│   ├── package.json
+│   └── server.js
 ├── build.sh*
 ├── CODE_OF_CONDUCT.md
 ├── compose.yaml
 ├── containers.txt
 ├── CONTRIBUTING.md
+├── dashboard.sh*
 ├── Dockerfile
 ├── domain.sh*
 ├── entrypoint.sh*
