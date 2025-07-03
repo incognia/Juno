@@ -126,15 +126,53 @@ To get started, follow these steps:
     ./dashboard.sh
     ```
     This will:
-    - Install Node.js (if not already installed)
+    - Install Node.js (if not already installed on Ubuntu/Debian or Fedora/RHEL)
     - Install dashboard dependencies
     - Start the web dashboard at http://localhost:3000
     
-    The dashboard automatically:
-    - Shows all running containers
-    - Displays JupyterLab links with tokens
-    - Provides SSH connection details
-    - Auto-refreshes every 30 seconds
+    The dashboard provides:
+    - Overview of all running containers
+    - Direct JupyterLab links with auto-generated tokens
+    - SSH connection details for each container
+    - Manual refresh button (no auto-refresh to avoid interruptions)
+    
+    **Important Docker Permissions Note:**
+    The dashboard needs to communicate with Docker to display container information. Ensure your user has proper Docker permissions:
+    
+    If you encounter permission errors when starting the dashboard:
+    ```bash
+    # Add your user to the docker group (already included in installation steps above)
+    sudo usermod -aG docker $USER
+    
+    # Log out and log back in, or restart your system for changes to take effect
+    # Alternatively, you can temporarily run the dashboard with sudo:
+    sudo node dashboard/server.js
+    ```
+    
+    **Cross-Distribution Compatibility:**
+    The dashboard installation script (`dashboard.sh`) has been tested and validated on:
+    - **Ubuntu 24.04 LTS** - uses `apt` package manager with `nodejs` and `npm` packages
+    - **Debian 12 (Bookworm)** - uses `apt` package manager with `nodejs` and `npm` packages
+    - **Fedora 42+** - uses `dnf` package manager with `nodejs` and `npm` packages
+    - **RHEL 9+ derivatives** (CentOS Stream, Rocky Linux, AlmaLinux) - uses `dnf` package manager
+    
+    The script includes:
+    - Automatic distribution detection via `/etc/os-release`
+    - Package manager detection (apt vs dnf)
+    - Docker permissions validation
+    - Graceful fallback to sudo execution when needed
+    - Version reporting for Node.js and npm after installation
+    
+    **Dashboard Interface:**
+    
+    ![Juno Dashboard Interface](https://raw.githubusercontent.com/incognia/Juno/main/.assets/junoDashboard.png)
+    
+    The dashboard provides a clean, modern web interface that displays:
+    - Real-time container status with visual indicators
+    - Direct JupyterLab access links with embedded tokens
+    - SSH connection details for each container
+    - Manual refresh functionality to update information on-demand
+    - Responsive design that works on desktop and mobile devices
 7.  If everything is configured correctly, you should have as many containers created as there are students in your `containers.txt` list. To verify that the containers have been successfully created, you can run:
     ```bash
     docker ps

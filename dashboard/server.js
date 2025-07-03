@@ -390,9 +390,6 @@ app.get('/', (req, res) => {
         
         // Load containers on page load
         loadContainers();
-        
-        // Auto-refresh every 30 seconds
-        setInterval(loadContainers, 30000);
     </script>
 </body>
 </html>

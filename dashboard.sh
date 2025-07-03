@@ -7,6 +7,40 @@ BLUE="\e[34m"
 ENDCOLOR="\e[0m"
 
 echo -e "${BLUE}🚀 Juno Dashboard Setup${ENDCOLOR}"
+echo ""
+
+# Detect distribution
+detect_distribution() {
+    if [ -f /etc/os-release ]; then
+        . /etc/os-release
+        DISTRO=$ID
+        VERSION=$VERSION_ID
+        echo -e "${GREEN}Detected system: $PRETTY_NAME${ENDCOLOR}"
+    else
+        echo -e "${YELLOW}Could not detect distribution, proceeding with generic approach${ENDCOLOR}"
+        DISTRO="unknown"
+    fi
+}
+
+# Function to check Docker permissions
+check_docker_permissions() {
+    if ! docker ps >/dev/null 2>&1; then
+        echo -e "${YELLOW}Warning: Cannot access Docker without sudo.${ENDCOLOR}"
+        echo -e "${YELLOW}This usually means your user is not in the docker group.${ENDCOLOR}"
+        echo -e "${YELLOW}The dashboard will need to run with sudo privileges.${ENDCOLOR}"
+        echo ""
+        echo -e "${BLUE}To fix this permanently:${ENDCOLOR}"
+        echo "1. Run: sudo usermod -aG docker \$USER"
+        echo "2. Log out and log back in (or restart your system)"
+        echo ""
+        return 1
+    fi
+    return 0
+}
+
+# Detect the current distribution
+detect_distribution
+echo ""
 
 # Check if Node.js is installed
 if ! command -v node &> /dev/null; then
@@ -45,13 +79,33 @@ npm install
 # Check if installation was successful
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}Dependencies installed successfully!${ENDCOLOR}"
-    echo -e "${BLUE}Starting Juno Dashboard...${ENDCOLOR}"
-    echo -e "${YELLOW}Dashboard will be available at: http://localhost:3000${ENDCOLOR}"
-    echo -e "${YELLOW}Press Ctrl+C to stop the dashboard${ENDCOLOR}"
-    echo ""
     
-    # Start the dashboard
-    npm start
+    # Check Docker permissions
+    echo -e "${BLUE}Checking Docker permissions...${ENDCOLOR}"
+    if check_docker_permissions; then
+        echo -e "${GREEN}Docker permissions OK!${ENDCOLOR}"
+        echo -e "${BLUE}Starting Juno Dashboard...${ENDCOLOR}"
+        echo -e "${YELLOW}Dashboard will be available at: http://localhost:3000${ENDCOLOR}"
+        echo -e "${YELLOW}Press Ctrl+C to stop the dashboard${ENDCOLOR}"
+        echo ""
+        
+        # Start the dashboard
+        npm start
+    else
+        echo -e "${YELLOW}Docker permissions issue detected.${ENDCOLOR}"
+        echo -e "${BLUE}Would you like to start the dashboard with sudo? (y/N)${ENDCOLOR}"
+        read -r response
+        if [[ "$response" =~ ^[Yy]$ ]]; then
+            echo -e "${BLUE}Starting Juno Dashboard with sudo...${ENDCOLOR}"
+            echo -e "${YELLOW}Dashboard will be available at: http://localhost:3000${ENDCOLOR}"
+            echo -e "${YELLOW}Press Ctrl+C to stop the dashboard${ENDCOLOR}"
+            echo ""
+            sudo npm start
+        else
+            echo -e "${RED}Dashboard not started. Please fix Docker permissions and try again.${ENDCOLOR}"
+            exit 1
+        fi
+    fi
 else
     echo -e "${RED}Failed to install dependencies${ENDCOLOR}"
     exit 1
