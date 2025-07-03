@@ -7,15 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Changed
-- Updated Python base image from 3.11.6 to 3.13.5
-- Updated JupyterLab from 4.0.6 to 4.4.4
-- Removed obsolete `version` directive from Docker Compose files
-- Updated Docker image version tag from 0.0.1 to 0.0.2
-- Updated README.md badges to reflect new versions
-
 ### Added
-- **New Dashboard Feature**: Web-based dashboard for easy container access
+- Web-based dashboard for easy container access and management
 - Auto-start JupyterLab service in all containers on startup
 - Node.js dashboard with automatic token extraction and management
 - Comprehensive Docker installation instructions for RHEL/Fedora/CentOS distributions
@@ -23,14 +16,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Compatibility notes for Fedora 42 (Adams)
 - User group permissions and verification steps documentation
 - Dashboard startup script with automatic dependency installation
+- Cross-distribution compatibility for dashboard installation
 
-### Technical Details
+### Changed
+- Updated Python base image from 3.11.6 to 3.13.5
+- Updated JupyterLab from 4.0.6 to 4.4.4
+- Updated Docker image version tag from 0.0.1 to 0.0.2
+- Updated README.md badges to reflect new versions
+- Improved documentation structure and clarity
+- Enhanced container generation process
+
+### Removed
+- Obsolete `version` directive from Docker Compose files
+
+### Technical
 - Dockerfile now uses `python:3.13.5-slim-bookworm` as base image
 - JupyterLab installation now pins to version 4.4.4 for consistency
 - Generator script updated to use new compose version and image tag
 - Build script updated to reference new image version
 - All configuration files regenerated with updated versions
-- README.md updated with modern distribution support
 
 ## [0.0.1] - 2023-09-14
 
