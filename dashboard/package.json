@@ -1,0 +1,16 @@
+{
+  "name": "juno-dashboard",
+  "version": "1.0.0",
+  "description": "Dashboard for Juno JupyterLab containers",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "dockerode": "^4.0.2"
+  },
+  "author": "Juno Project",
+  "license": "GPL-3.0"
+}

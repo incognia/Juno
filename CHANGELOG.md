@@ -15,10 +15,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated README.md badges to reflect new versions
 
 ### Added
+- **New Dashboard Feature**: Web-based dashboard for easy container access
+- Auto-start JupyterLab service in all containers on startup
+- Node.js dashboard with automatic token extraction and management
 - Comprehensive Docker installation instructions for RHEL/Fedora/CentOS distributions
 - Installation guide for Ubuntu 24.04 LTS and Debian 12
 - Compatibility notes for Fedora 42 (Adams)
 - User group permissions and verification steps documentation
+- Dashboard startup script with automatic dependency installation
 
 ### Technical Details
 - Dockerfile now uses `python:3.13.5-slim-bookworm` as base image

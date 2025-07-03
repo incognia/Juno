@@ -120,6 +120,21 @@ To get started, follow these steps:
     ```bash
     bash build.sh
     ```
+7.  **NEW: Start the Dashboard (Optional but Recommended)**
+    To provide an easy-to-use web interface for accessing all containers, start the Juno Dashboard:
+    ```bash
+    ./dashboard.sh
+    ```
+    This will:
+    - Install Node.js (if not already installed)
+    - Install dashboard dependencies
+    - Start the web dashboard at http://localhost:3000
+    
+    The dashboard automatically:
+    - Shows all running containers
+    - Displays JupyterLab links with tokens
+    - Provides SSH connection details
+    - Auto-refreshes every 30 seconds
 7.  If everything is configured correctly, you should have as many containers created as there are students in your `containers.txt` list. To verify that the containers have been successfully created, you can run:
     ```bash
     docker ps
