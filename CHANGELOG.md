@@ -14,12 +14,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated Docker image version tag from 0.0.1 to 0.0.2
 - Updated README.md badges to reflect new versions
 
+### Added
+- Comprehensive Docker installation instructions for RHEL/Fedora/CentOS distributions
+- Installation guide for Ubuntu 24.04 LTS and Debian 12
+- Compatibility notes for Fedora 42 (Adams)
+- User group permissions and verification steps documentation
+
 ### Technical Details
 - Dockerfile now uses `python:3.13.5-slim-bookworm` as base image
 - JupyterLab installation now pins to version 4.4.4 for consistency
 - Generator script updated to use new compose version and image tag
 - Build script updated to reference new image version
 - All configuration files regenerated with updated versions
+- README.md updated with modern distribution support
 
 ## [0.0.1] - 2023-09-14
 

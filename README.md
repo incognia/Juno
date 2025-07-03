@@ -23,8 +23,47 @@ Join us in empowering middle school students (ages 12 to 15) with a **JupyterLab
 
 Before diving into our lab, make sure your system meets the following requirements:
 
-- A server equipped with Docker Engine, ideally running Debian or Alpine Linux.
+- A server equipped with Docker Engine, running modern Linux distributions.
 - Docker Compose to streamline container management.
+
+### Installation Instructions by Distribution
+
+#### For Ubuntu 24.04 LTS / Debian 12:
+```bash
+# Update package index
+sudo apt update
+
+# Install Docker and Docker Compose
+sudo apt install -y docker.io docker-compose-v2
+
+# Enable and start Docker service
+sudo systemctl enable --now docker
+
+# Add current user to docker group
+sudo usermod -aG docker $USER
+```
+
+#### For Fedora 40+ / RHEL 9+ / CentOS Stream 9+:
+```bash
+# Install Docker and Docker Compose
+sudo dnf install -y docker docker-compose
+
+# Enable and start Docker service
+sudo systemctl enable --now docker
+
+# Add current user to docker group
+sudo usermod -aG docker $USER
+```
+
+**Important Notes:**
+- After adding your user to the docker group, you need to log out and log back in (or restart your system) for the changes to take effect.
+- These instructions are optimized for current LTS/stable versions and have been tested on:
+  - Ubuntu 24.04 LTS
+  - Debian 12 (Bookworm)
+  - Fedora 42 (Adams)
+  - RHEL 9+ and derivatives
+- Verify installation with: `docker --version` and `docker compose version`
+- For older distributions, consult the official Docker documentation.
 
 Please note that our lab is designed to function in an environment directly accessible from the internet. This is because each container uses two ports: port 1022 for SSH and port 1088 for accessing JupyterLab via a web browser. With each additional container, these port numbers increase by 100 (e.g., 1022, 1122, 1222 for SSH, or 1088, 1188, 1288 for Jupyter). Therefore, it's recommended that your server is exposed, meaning there are no NAT rules in place.
 
