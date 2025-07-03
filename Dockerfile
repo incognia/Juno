@@ -1,4 +1,4 @@
-FROM python:3.11.6-slim-bookworm
+FROM python:3.13.5-slim-bookworm
 
 # Actualiza la lista de paquetes disponibles
 RUN apt-get update \
@@ -58,7 +58,7 @@ RUN cat /app/etc/sshd_config > /etc/ssh/sshd_config
 USER eureka
 
 # Instalamos JupyterLab y el paquete de idioma en español (ES)
-RUN pip install jupyterlab jupyterlab-language-pack-es-ES
+RUN pip install jupyterlab==4.4.4 jupyterlab-language-pack-es-ES
 
 # Cambiamos de nuevo al usuario "root"
 USER root

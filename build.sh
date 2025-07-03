@@ -7,7 +7,7 @@ BLUE="\e[34m"
 ENDCOLOR="\e[0m"
 
 # Define una variable 'image' que almacena la imagen de Docker que se utilizará en el script.
-image=eureka/jupyterlab:0.0.1-bookworm-slim
+image=eureka/jupyterlab:0.0.2-bookworm-slim
 
 # Variables booleanas que indicarán qué acciones se deben realizar. Inicialmente, todas están configuradas como falsas.
 all=false

@@ -7,7 +7,7 @@ with open("containers.txt", "r") as file:
 
 # Plantilla para el archivo de composición Docker.
 compose_template = """
-version: '3.8'
+version: '3.9'
 services:
 {}
 volumes:
@@ -16,7 +16,7 @@ volumes:
 # Plantilla para la configuración de un servicio en el archivo de composición Docker.
 service_template = """
   {}:
-    image: eureka/jupyterlab:0.0.1-bookworm-slim
+    image: eureka/jupyterlab:0.0.2-bookworm-slim
     container_name: {}
     hostname: {}
     ports:
