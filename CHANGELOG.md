@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Updated Python base image from 3.11.6 to 3.13.5
 - Updated JupyterLab from 4.0.6 to 4.4.4
-- Updated Docker Compose version from 3.8 to 3.9
+- Removed obsolete `version` directive from Docker Compose files
 - Updated Docker image version tag from 0.0.1 to 0.0.2
 - Updated README.md badges to reflect new versions
 

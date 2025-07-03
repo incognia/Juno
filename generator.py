@@ -7,7 +7,6 @@ with open("containers.txt", "r") as file:
 
 # Plantilla para el archivo de composición Docker.
 compose_template = """
-version: '3.9'
 services:
 {}
 volumes:
