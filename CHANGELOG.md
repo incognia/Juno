@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2025-10-17]
 
 ### Changed
-- build: actualización de dependencias del tablero y configuración de gitignore
+- build: update dashboard dependencies and add gitignore configuration
 
 ## [Unreleased]
 
